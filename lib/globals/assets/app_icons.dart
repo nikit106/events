@@ -24,6 +24,8 @@ class AppIcons {
   }) =>
       SvgPicture.asset(
         'assets/svg/key.svg',
+        // color: Colors.black,
+        colorFilter: const ColorFilter.mode(Color(0xff394957), BlendMode.srcIn),
         // width: width ?? 50,
         // height: height ?? 80,
         fit: fit ?? BoxFit.contain,
