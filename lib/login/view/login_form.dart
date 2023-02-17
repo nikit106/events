@@ -129,25 +129,82 @@ class LoginWidget extends StatelessWidget {
   }
 }
 
+/// TODO написать что это.
+const String zwsp = '\u200b';
+
+// Выбор находится по смещению 1, поэтому любой символ вставляется после него.
+const TextEditingValue zwspEditingValue = TextEditingValue(
+  text: zwsp,
+  selection: TextSelection(baseOffset: 1, extentOffset: 1),
+);
+
 /// Панель пинкода.
-class PinCodePanel extends StatelessWidget {
+class PinCodePanel extends StatefulWidget {
   /// Создаем [PinCodePanel].
   const PinCodePanel({
     super.key,
   });
 
   @override
+  State<PinCodePanel> createState() => _PinCodePanelState();
+}
+
+class _PinCodePanelState extends State<PinCodePanel> {
+  /// Вводимый код.
+  List<String> code = <String>['', '', '', '', ''];
+
+  /// Лист TextEditingController.
+  late List<TextEditingController> listOfControllers;
+
+  /// Лист focusNodes.
+  late List<FocusNode> listOfFocusNodes;
+
+  @override
+  void initState() {
+    super.initState();
+    listOfFocusNodes =
+        List<FocusNode>.generate(5, (final int index) => FocusNode());
+    listOfControllers =
+        List<TextEditingController>.generate(5, (final int index) {
+      final TextEditingController ctrl = TextEditingController();
+      ctrl.value = zwspEditingValue;
+      return ctrl;
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((final Duration timeStamp) {
+      /// Автоматический фокус на первый item.
+      listOfFocusNodes[0].requestFocus();
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    listOfFocusNodes.forEach((final FocusNode focusNode) {
+      focusNode.dispose();
+    });
+    listOfControllers.forEach((final TextEditingController controller) {
+      controller.dispose();
+    });
+  }
+
+  @override
   Widget build(final BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 38),
       child: Row(
-        children: const <PinCodeItem>[
-          PinCodeItem(),
-          PinCodeItem(),
-          PinCodeItem(),
-          PinCodeItem(),
-          PinCodeItem(),
-        ],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List<PinCodeItem>.generate(
+          5,
+          (final int index) {
+            return PinCodeItem(
+              listOfControllers: listOfControllers,
+              index: index,
+              listOfFocusNodes: listOfFocusNodes,
+              code: code,
+            );
+          },
+        ),
       ),
     );
   }
@@ -157,25 +214,69 @@ class PinCodePanel extends StatelessWidget {
 class PinCodeItem extends StatelessWidget {
   /// Создаем [PinCodePanel]
   const PinCodeItem({
+    required this.index,
+    required this.listOfControllers,
+    required this.listOfFocusNodes,
+    required this.code,
     super.key,
   });
 
+  /// Текущий индекс.
+  final int index;
+
+  /// Лист с Controllers.
+  final List<TextEditingController> listOfControllers;
+
+  /// Лист с FocusNodes
+  final List<FocusNode> listOfFocusNodes;
+
+  /// Лист с вводимыми данными.
+  final List<String> code;
+
+  void _onChange(final String value, final BuildContext context) {
+    if (value.length > 1) {
+      // Новое событие.
+      if (index + 1 == listOfFocusNodes.length) {
+        // Передаем данные в блок.
+        FocusScope.of(context).unfocus();
+      } else {
+        // Переходим на следующее поле.
+        listOfFocusNodes[index + 1].requestFocus();
+      }
+    } else {
+      // Стираем символ.
+      // Ресетим.
+      listOfControllers[index].value = zwspEditingValue;
+      if (index == 0) {
+        // Если понадобится действие при нажатие назад на первом символе.
+      } else {
+        // Переходим на прошлое поле.
+        listOfControllers[index - 1].value = zwspEditingValue;
+        listOfFocusNodes[index - 1].requestFocus();
+      }
+    }
+    // Удаляем ненужные символы.
+    code[index] = value.replaceAll(zwsp, '');
+  }
+
   @override
   Widget build(final BuildContext context) {
-    return const Expanded(
+    return Expanded(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 7),
+        padding: const EdgeInsets.symmetric(horizontal: 7),
         child: TextField(
-          maxLength: 1,
+          controller: listOfControllers[index],
+          focusNode: listOfFocusNodes[index],
+          maxLength: 2,
           textAlign: TextAlign.center,
           textAlignVertical: TextAlignVertical.center,
           showCursor: false,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 32,
             color: Color(0xff394957),
             fontWeight: FontWeight.w400,
           ),
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(4, 14, 0, 14),
             counterText: '',
             focusedBorder: OutlineInputBorder(
@@ -191,6 +292,9 @@ class PinCodeItem extends StatelessWidget {
               ),
             ),
           ),
+          onChanged: (final String value) {
+            _onChange(value, context);
+          },
         ),
       ),
     );
