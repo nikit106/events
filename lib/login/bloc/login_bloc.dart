@@ -1,70 +1,46 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:formz/formz.dart';
-import 'package:myevents/login/login.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 
-///
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  ///
   LoginBloc({
     required final AuthenticationRepository authenticationRepository,
   })  : _authenticationRepository = authenticationRepository,
         super(const LoginState()) {
-    on<LoginUsernameChanged>(_onUsernameChanged);
-    on<LoginPasswordChanged>(_onPasswordChanged);
-    on<LoginSubmitted>(_onSubmitted);
+    on<CodeChanged>(_onCodeChanged);
+    on<CodeSubmitted>(_onSubmitted);
   }
 
   final AuthenticationRepository _authenticationRepository;
 
-  void _onUsernameChanged(
-    final LoginUsernameChanged event,
+  void _onCodeChanged(
+    final CodeChanged event,
     final Emitter<LoginState> emit,
   ) {
-    final Username username = Username.dirty(event.username);
     emit(
       state.copyWith(
-        username: username,
-        status: Formz.validate(
-          <FormzInput<dynamic, dynamic>>[state.password, username],
-        ),
-      ),
-    );
-  }
-
-  void _onPasswordChanged(
-    final LoginPasswordChanged event,
-    final Emitter<LoginState> emit,
-  ) {
-    final Password password = Password.dirty(event.password);
-    emit(
-      state.copyWith(
-        password: password,
-        status: Formz.validate(
-          <FormzInput<dynamic, dynamic>>[password, state.username],
-        ),
+        code: event.code,
+        status: event.code.length == 5
+            ? LoginStatus.isValid
+            : LoginStatus.isNotValid,
       ),
     );
   }
 
   Future<void> _onSubmitted(
-    final LoginSubmitted event,
+    final CodeSubmitted event,
     final Emitter<LoginState> emit,
   ) async {
-    if (state.status.isValidated) {
-      emit(state.copyWith(status: FormzStatus.submissionInProgress));
+    if (state.status == LoginStatus.isValid) {
+      emit(state.copyWith(status: LoginStatus.isProgress));
       try {
-        await _authenticationRepository.logIn(
-          username: state.username.value,
-          password: state.password.value,
-        );
-        emit(state.copyWith(status: FormzStatus.submissionSuccess));
+        await _authenticationRepository.logIn(code: state.code);
+        emit(state.copyWith(status: LoginStatus.isSuccess));
       } catch (_) {
-        emit(state.copyWith(status: FormzStatus.submissionFailure));
+        emit(state.copyWith(status: LoginStatus.isError));
       }
     }
   }

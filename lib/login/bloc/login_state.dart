@@ -1,36 +1,46 @@
 part of 'login_bloc.dart';
 
-///
+/// Возможные статусы
+enum LoginStatus {
+  /// Заходим на главный экран
+  isProgress,
+
+  /// Успешный вход.
+  isSuccess,
+
+  /// Произошла ошибка.
+  isError,
+
+  /// Экран только открылся.
+  isPure,
+
+  /// Валидный код.
+  isValid,
+
+  /// Не валидный код.
+  isNotValid
+}
+
 class LoginState extends Equatable {
-  ///
   const LoginState({
-    this.status = FormzStatus.pure,
-    this.username = const Username.pure(),
-    this.password = const Password.pure(),
+    this.status = LoginStatus.isPure,
+    this.code = '',
   });
 
-  ///
-  final FormzStatus status;
+  final LoginStatus status;
 
-  ///
-  final Username username;
+  final String code;
 
-  ///
-  final Password password;
-
-  ///
   LoginState copyWith({
-    final FormzStatus? status,
-    final Username? username,
-    final Password? password,
+    final LoginStatus? status,
+    final String? code,
   }) {
     return LoginState(
       status: status ?? this.status,
-      username: username ?? this.username,
-      password: password ?? this.password,
+      code: code ?? this.code,
     );
   }
 
   @override
-  List<Object> get props => <Object>[status, username, password];
+  List<Object> get props => <Object>[status, code];
 }

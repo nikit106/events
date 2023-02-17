@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/home/home.dart';
 import 'package:myevents/login/login.dart';
+import 'package:myevents/responsive_main_wrapper.dart';
 import 'package:myevents/splash/splash.dart';
 import 'package:user_repository/user_repository.dart';
 
@@ -87,7 +88,7 @@ class _AppViewState extends State<AppView> {
                 break;
             }
           },
-          child: child,
+          child: MainResponsiveWrapper(child: child ?? const SizedBox()),
         );
       },
       onGenerateRoute: (final _) => SplashPage.route(),

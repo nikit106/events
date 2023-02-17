@@ -17,6 +17,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Scaffold(
+      // resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xff0064DA),
       body: BlocProvider(
         create: (final BuildContext context) {
@@ -45,7 +46,7 @@ class LoginPage extends StatelessWidget {
                       right: constraints.biggest.width * .15,
                       bottom: constraints.biggest.height * .30,
                     ),
-                    child: AppIcons.logo(),
+                    child: AppIcons.logo(key: const Key('loginPage_logo')),
                   );
                 },
               ),
