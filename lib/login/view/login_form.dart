@@ -64,8 +64,8 @@ class LoginWidget extends StatelessWidget {
                       'Код для входа',
                       style: TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff394957),
+                        // fontWeight: FontWeight.w400,
+                        // color: Color(0xff394957),
                       ),
                     ),
                   )
@@ -108,8 +108,8 @@ class RegistrationPanel extends StatelessWidget {
             style: TextStyle(
               decoration: TextDecoration.underline,
               fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: Color(0xff394957),
+              // fontWeight: FontWeight.w400,
+              // color: Color(0xff394957),
             ),
           ),
         ),
@@ -266,8 +266,8 @@ class PinCodeItem extends StatelessWidget {
           showCursor: false,
           style: const TextStyle(
             fontSize: 32,
-            color: Color(0xff394957),
-            fontWeight: FontWeight.w400,
+            // color: Color(0xff394957),
+            // fontWeight: FontWeight.w400,
           ),
           decoration: const InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(4, 14, 0, 14),
