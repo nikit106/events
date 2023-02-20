@@ -25,19 +25,24 @@ class LoginState extends Equatable {
   const LoginState({
     this.status = LoginStatus.isPure,
     this.code = '',
+    this.text = '',
   });
 
   final LoginStatus status;
 
   final String code;
 
+  final String text;
+
   LoginState copyWith({
     final LoginStatus? status,
     final String? code,
+    final String? text,
   }) {
     return LoginState(
       status: status ?? this.status,
       code: code ?? this.code,
+      text: text ?? this.text,
     );
   }
 

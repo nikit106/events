@@ -15,13 +15,13 @@ class LoginForm extends StatelessWidget {
   Widget build(final BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
       listener: (final BuildContext context, final LoginState state) {
-        // if (state.status1.isError) {
-        //   ScaffoldMessenger.of(context)
-        //     ..hideCurrentSnackBar()
-        //     ..showSnackBar(
-        //       const SnackBar(content: Text('Authentication Failure')),
-        //     );
-        // }
+        if (state.status == LoginStatus.isError) {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(content: Text(state.text)),
+            );
+        }
       },
       child: const LoginWidget(),
     );
@@ -121,7 +121,7 @@ class RegistrationPanel extends StatelessWidget {
 /// TODO написать что это.
 const String zwsp = '\u200b';
 
-// Выбор находится по смещению 1, поэтому любой символ вставляется после него.
+/// Выбор находится по смещению 1, поэтому любой символ вставляется после него.
 const TextEditingValue zwspEditingValue = TextEditingValue(
   text: zwsp,
   selection: TextSelection(baseOffset: 1, extentOffset: 1),

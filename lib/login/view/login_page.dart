@@ -1,15 +1,12 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/globals/assets/app_icons.dart';
 import 'package:myevents/login/login.dart';
 
-///
 class LoginPage extends StatelessWidget {
-  ///
   const LoginPage({super.key});
 
-  ///
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (final _) => const LoginPage());
   }
@@ -17,7 +14,6 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xff0064DA),
       body: BlocProvider(
         create: (final BuildContext context) {
