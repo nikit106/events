@@ -2,6 +2,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevents/authentication/authentication.dart';
+import 'package:myevents/globals/theme/main_theme.dart';
 import 'package:myevents/home/home.dart';
 import 'package:myevents/login/login.dart';
 import 'package:myevents/responsive_main_wrapper.dart';
@@ -65,6 +66,7 @@ class _AppViewState extends State<AppView> {
   @override
   Widget build(final BuildContext context) {
     return MaterialApp(
+      theme: AppThemes.basicTheme,
       debugShowCheckedModeBanner: false,
       navigatorKey: _navigatorKey,
       builder: (final BuildContext context, final Widget? child) {
