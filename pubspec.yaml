@@ -9,20 +9,20 @@ environment:
 
 # Regular dependencies are listed under dependencies:—these are packages that anyone using your package will also need.
 dependencies:
-  authentication_repository:
-    path: packages/authentication_repository
   bloc: ^8.1.0
+  dio: ^5.0.0
+  uuid: ^3.0.7
   equatable: ^2.0.3
   flutter_svg: ^2.0.1
   freezed_annotation: ^2.2.0
   responsive_framework: ^0.2.0
   json_annotation: ^4.8.0
+  shared_preferences: ^2.0.17
+  flutter_secure_storage: ^8.0.0
+
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
-  # formz: ^0.4.1
-  user_repository:
-    path: packages/user_repository
 
 # Dependencies that are only needed in the development phase of the package itself are listed under dev_dependencies.
 dev_dependencies:

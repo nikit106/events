@@ -1,11 +1,14 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
+import 'package:myevents/authentication/authentication.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 
+/// Bloc [LoginBloc].
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
+  /// Создаем [LoginBloc].
   LoginBloc({
     required final AuthenticationRepository authenticationRepository,
   })  : _authenticationRepository = authenticationRepository,
@@ -38,9 +41,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(status: LoginStatus.isProgress));
       try {
         await _authenticationRepository.logIn(code: state.code);
+        debugPrint('все ок');
         emit(state.copyWith(status: LoginStatus.isSuccess));
-      } catch (_) {
-        emit(state.copyWith(status: LoginStatus.isError));
+      } catch (e) {
+        emit(state.copyWith(status: LoginStatus.isError, text: e.toString()));
       }
     }
   }

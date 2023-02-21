@@ -8,7 +8,7 @@ class AppIcons {
           {final double? width,
           final double? height,
           final BoxFit? fit,
-          final Key? key}) =>
+          final Key? key,}) =>
       SvgPicture.asset(
         key: key,
         'assets/svg/logo.svg',

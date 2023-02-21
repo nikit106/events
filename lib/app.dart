@@ -1,4 +1,3 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevents/authentication/authentication.dart';
@@ -7,9 +6,11 @@ import 'package:myevents/home/home.dart';
 import 'package:myevents/login/login.dart';
 import 'package:myevents/responsive_main_wrapper.dart';
 import 'package:myevents/splash/splash.dart';
-import 'package:user_repository/user_repository.dart';
+import 'package:myevents/user/user.dart';
 
+/// myEvents app
 class App extends StatefulWidget {
+  /// Создаем [App]
   const App({super.key});
 
   @override
@@ -48,9 +49,9 @@ class _AppState extends State<App> {
   }
 }
 
-///
+/// Экран [AppView].
 class AppView extends StatefulWidget {
-  ///
+  /// Создаем [AppView]
   const AppView({super.key});
 
   @override
@@ -58,7 +59,6 @@ class AppView extends StatefulWidget {
 }
 
 class _AppViewState extends State<AppView> {
-  ///
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
   NavigatorState get _navigator => _navigatorKey.currentState!;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myevents/globals/assets/app_icons.dart';
 import 'package:myevents/splash/view/splash_background.dart';
 
-/// Виджет который будем показывать пока идет проверка на авторизацию.
+/// Виджет который будем показывать пока идет проверка авторизации.
 class SplashPage extends StatelessWidget {
   /// Создаем [SplashPage]
   const SplashPage({super.key});
@@ -15,7 +15,8 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0064DA),
+      /// TODO вынести в theme.
+      backgroundColor: const Color(0xff0064DA),
       body: Stack(
         children: <Widget>[
           CustomPaint(
