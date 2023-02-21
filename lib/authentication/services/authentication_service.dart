@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
+import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/authentication/models/models.dart';
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
 
-/// Сервис авторизации.
+/// Service [AuthenticationService].
 class AuthenticationService {
   /// Получаем токен.
   Future<JwtToken> getToken(final String code) async {
@@ -16,6 +17,4 @@ class AuthenticationService {
     );
     return JwtToken.fromJson(response.data ?? <String, Object>{});
   }
-
-  Future refreshToken(final String token) async {}
 }

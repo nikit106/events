@@ -1,21 +1,26 @@
 import 'package:dio/dio.dart';
+
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
 
+/// Класс [Api].
 class Api {
+  /// Создаем единственный экземпляр [Api].
   factory Api() => _singleton;
   Api._internal();
+
+  /// Присваиваем dio.
   final Dio dio = createDio();
-  final Dio tokenDio = Dio(BaseOptions(baseUrl: Endpoints.baseUrl));
 
   static final Api _singleton = Api._internal();
 
+  /// Определяем с предустановленными значениями.
   static Dio createDio() {
-    Dio dio = Dio(
+    final Dio dio = Dio(
       BaseOptions(
         baseUrl: Endpoints.baseUrl,
         receiveTimeout: Endpoints.receiveTimeout,
         connectTimeout: Endpoints.connectionTimeout,
-        // sendTimeout: 15000,
+        headers: <String, dynamic>{},
       ),
     );
 

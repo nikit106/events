@@ -5,9 +5,9 @@ part 'code.g.dart';
 
 @freezed
 
-/// Класс для Code.
+/// Класс для [Code].
 class Code with _$Code {
-  /// Фабрика для генерации Jwt.
+  /// Фабрика для генерации [Code].
   const factory Code({
     final String? code,
   }) = _Code;

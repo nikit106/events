@@ -1,11 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:myevents/authentication/authentication.dart';
-import 'package:myevents/globals/repository/storage/init_storages.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+/// Статусы авторизации.
 enum AuthenticationStatus {
   /// Неизвестно, авторизован ли пользователь или нет.
   unknown,
@@ -17,6 +14,7 @@ enum AuthenticationStatus {
   unauthenticated
 }
 
+/// Репозиторий [AuthenticationRepository]
 class AuthenticationRepository {
   final StreamController<AuthenticationStatus> _controller =
       StreamController<AuthenticationStatus>();
@@ -24,15 +22,12 @@ class AuthenticationRepository {
   /// Проверка статуса.
   Stream<AuthenticationStatus> get status async* {
     try {
-      ///TODO понять что именно надо сравнивать
       await Future<void>.delayed(const Duration(seconds: 1));
-      var token = await _getTokenLocally();
+      final JwtToken? token = await _checkTokenLocally();
       if (token == null) {
-        print('token == null');
         yield AuthenticationStatus.unauthenticated;
         yield* _controller.stream;
       } else {
-        // _controller.add(AuthenticationStatus.authenticated);
         yield AuthenticationStatus.authenticated;
         yield* _controller.stream;
       }
@@ -42,12 +37,13 @@ class AuthenticationRepository {
     }
   }
 
+  /// Авторизация в приложение.
   Future<void> logIn({
     required final String code,
   }) async {
     try {
       final JwtToken token = await AuthenticationService().getToken(code);
-      await _saveCredentialsLocally(code);
+      await _saveCodeLocally(code);
       await _saveTokenLocally(token);
       _controller.add(AuthenticationStatus.authenticated);
     } on Exception {
@@ -55,21 +51,24 @@ class AuthenticationRepository {
     }
   }
 
-  Future<void> _saveCredentialsLocally(final String token) async {
-    await LocalAuthenticationService().saveCredentials(token);
+  Future<void> _saveCodeLocally(final String token) async {
+    await LocalAuthenticationService().saveCode(token);
   }
 
   Future<void> _saveTokenLocally(final JwtToken token) async {
     await LocalAuthenticationService().saveToken(token);
   }
 
-  Future<String?> _getTokenLocally() async {
-    return await LocalAuthenticationService().getCode();
+  Future<JwtToken?> _checkTokenLocally() async {
+    return LocalAuthenticationService().checkToken();
   }
 
-  void logOut() {
+  /// Выход из приложения и удаление токена.
+  Future<void> logOut() async {
+    await LocalAuthenticationService().dropToken();
     _controller.add(AuthenticationStatus.unauthenticated);
   }
 
+  /// Зыкрываем стрим.
   void dispose() => _controller.close();
 }

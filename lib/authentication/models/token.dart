@@ -5,9 +5,9 @@ part 'token.g.dart';
 
 @freezed
 
-/// Класс для JWT token.
+/// Класс для [JwtToken].
 class JwtToken with _$JwtToken {
-  /// Фабрика для генерации Jwt.
+  /// Фабрика для генерации [JwtToken].
   const factory JwtToken({
     final String? csrf,
     final String? access,

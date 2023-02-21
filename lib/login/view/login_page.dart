@@ -4,9 +4,12 @@ import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/globals/assets/app_icons.dart';
 import 'package:myevents/login/login.dart';
 
+/// Экран авьоризации [LoginPage].
 class LoginPage extends StatelessWidget {
+  /// Создаем [LoginPage].
   const LoginPage({super.key});
 
+  /// Создаем route для[LoginPage].
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (final _) => const LoginPage());
   }

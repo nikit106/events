@@ -6,11 +6,15 @@ part 'server_error.freezed.dart';
 part 'server_error.g.dart';
 
 @freezed
+
+/// Класс для [ServerError].
 class ServerError with _$ServerError {
+  /// Фабрика для генерации [ServerError].
   const factory ServerError({
-    List<ServerErrorMessage>? errors,
+    final List<ServerErrorMessage>? errors,
   }) = _ServerError;
 
+  /// Фабрика для from/toJson методов генерации.
   factory ServerError.fromJson(final Map<String, Object?> json) =>
       _$ServerErrorFromJson(json);
 }

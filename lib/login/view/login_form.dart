@@ -97,9 +97,7 @@ class RegistrationPanel extends StatelessWidget {
   Widget build(final BuildContext context) {
     return InkWell(
       key: const Key('loginForm_RegistrationPanel'),
-      onTap: () {
-        debugPrint('1');
-      },
+      onTap: () {},
       child: const Padding(
         padding: EdgeInsets.only(bottom: 14, top: 14),
         child: Center(

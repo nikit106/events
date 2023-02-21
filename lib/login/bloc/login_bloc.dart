@@ -6,7 +6,9 @@ import 'package:myevents/authentication/authentication.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 
+/// Bloc [LoginBloc].
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
+  /// Создаем [LoginBloc].
   LoginBloc({
     required final AuthenticationRepository authenticationRepository,
   })  : _authenticationRepository = authenticationRepository,

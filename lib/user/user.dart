@@ -1,2 +1,3 @@
 export 'models/models.dart';
-export 'src/repository.dart';
+export 'repository/user_repository.dart';
+export 'services/user_service.dart';

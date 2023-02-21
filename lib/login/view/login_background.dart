@@ -9,6 +9,7 @@ class BackgroundLogin extends CustomPainter {
       ..isAntiAlias = true
       ..color = const Color(0xff394957);
 
+    ///TODO в идеале преобразовать в функцию.
     final Rect topFirst =
         Rect.fromLTRB(0, 0, size.width * 0.10, size.height * 0.22);
     canvas.drawRect(topFirst, paint);

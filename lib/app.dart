@@ -8,7 +8,9 @@ import 'package:myevents/responsive_main_wrapper.dart';
 import 'package:myevents/splash/splash.dart';
 import 'package:myevents/user/user.dart';
 
+/// myEvents app
 class App extends StatefulWidget {
+  /// Создаем [App]
   const App({super.key});
 
   @override
@@ -47,9 +49,9 @@ class _AppState extends State<App> {
   }
 }
 
-///
+/// Экран [AppView].
 class AppView extends StatefulWidget {
-  ///
+  /// Создаем [AppView]
   const AppView({super.key});
 
   @override
@@ -57,7 +59,6 @@ class AppView extends StatefulWidget {
 }
 
 class _AppViewState extends State<AppView> {
-  ///
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
   NavigatorState get _navigator => _navigatorKey.currentState!;
