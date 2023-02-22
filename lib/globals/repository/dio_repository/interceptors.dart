@@ -26,7 +26,8 @@ class AppInterceptors extends Interceptor {
   void onError(final DioError err, final ErrorInterceptorHandler handler) {
     final ServerError error =
         ServerError.fromJson(err.response?.data as Map<String, dynamic>);
-
+    print('error $error');
+    print("err.type ${err.type}");
     switch (err.type) {
       case DioErrorType.connectionTimeout:
       case DioErrorType.sendTimeout:
@@ -38,6 +39,11 @@ class AppInterceptors extends Interceptor {
             throw BadRequestException(err.requestOptions);
           case 401:
             throw UnauthorizedException(
+              err.requestOptions,
+              error.errors?[0].detail ?? 'Неизвестная ошибка',
+            );
+          case 403:
+            throw ForbiddenException(
               err.requestOptions,
               error.errors?[0].detail ?? 'Неизвестная ошибка',
             );
@@ -103,6 +109,20 @@ class ConflictException extends DioError {
 class UnauthorizedException extends DioError {
   /// Создаем [UnauthorizedException].
   UnauthorizedException(
+    final RequestOptions r,
+    final String? e,
+  ) : super(requestOptions: r, message: e);
+
+  @override
+  String toString() {
+    return message ?? 'Неизвестная ошибка';
+  }
+}
+
+/// Перехват 403 ошибки.
+class ForbiddenException extends DioError {
+  /// Создаем [ForbiddenException].
+  ForbiddenException(
     final RequestOptions r,
     final String? e,
   ) : super(requestOptions: r, message: e);

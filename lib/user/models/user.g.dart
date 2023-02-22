@@ -51,7 +51,7 @@ _$_DataAttributes _$$_DataAttributesFromJson(Map<String, dynamic> json) =>
       phone: json['phone'],
       email: json['email'] as String,
       about: json['about'] as String,
-      avatar: json['avatar'] as String,
+      avatar: json['avatar'] as String?,
     );
 
 Map<String, dynamic> _$$_DataAttributesToJson(_$_DataAttributes instance) =>

@@ -84,7 +84,8 @@ class DataAttributes with _$DataAttributes {
     required final String about,
 
     /// Аватар.
-    required final String avatar,
+    final String? avatar,
+    
   }) = _DataAttributes;
 
   /// Фабрика для from/toJson методов генерации.
