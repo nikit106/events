@@ -3,6 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:myevents/authentication/models/models.dart';
+import 'dart:io';
+
+import 'package:device_info_plus/device_info_plus.dart';
 
 /// Service [LocalAuthenticationService].
 class LocalAuthenticationService {
@@ -31,6 +34,21 @@ class LocalAuthenticationService {
     final String code,
   ) async {
     await _saveForKey(key: codeKey, value: code);
+  }
+
+  /// Сохраняем в storage код для входа.
+  Future<String?> getDeviceId() async {
+    final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    if (Platform.isIOS) {
+      final IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+      return iosDeviceInfo.identifierForVendor;
+    } else if (Platform.isAndroid) {
+      final AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
+      // return androidDeviceInfo.androidId;
+      return androidDeviceInfo.id;
+    } else {
+      return '';
+    }
   }
 
   /// Удаляем jwt токен с устройства

@@ -42,13 +42,18 @@ class AuthenticationRepository {
     required final String code,
   }) async {
     try {
-      final JwtToken token = await AuthenticationService().getToken(code);
+      final String? deviceId = await _getDeviceId();
+      final JwtToken token = await AuthenticationService().getToken(code, deviceId);
       await _saveCodeLocally(code);
       await _saveTokenLocally(token);
       _controller.add(AuthenticationStatus.authenticated);
     } on Exception {
       rethrow;
     }
+  }
+
+  Future<String?> _getDeviceId() async {
+    return LocalAuthenticationService().getDeviceId();
   }
 
   Future<void> _saveCodeLocally(final String token) async {

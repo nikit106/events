@@ -440,19 +440,44 @@ DataAttributes _$DataAttributesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DataAttributes {
+  /// Полное имя.
   String get fullName => throw _privateConstructorUsedError;
+
+  /// Имя.
   String get firstName => throw _privateConstructorUsedError;
+
+  /// Фамилия.
   String get surname => throw _privateConstructorUsedError;
+
+  /// Отчество.
   String get patronymic => throw _privateConstructorUsedError;
+
+  /// Должность.
   String get position => throw _privateConstructorUsedError;
+
+  /// Можно ли показывать email.
   bool get showEmail => throw _privateConstructorUsedError;
+
+  /// Можно ли показывать телефон.
   bool get showPhone => throw _privateConstructorUsedError;
+
+  ///TODO узнать что это
   String get groupName => throw _privateConstructorUsedError;
+
+  /// Является ли спикером.
   bool get isSpeaker => throw _privateConstructorUsedError;
+
+  /// Телефон.
   dynamic get phone => throw _privateConstructorUsedError;
+
+  /// Почта.
   String get email => throw _privateConstructorUsedError;
+
+  /// Описание.
   String get about => throw _privateConstructorUsedError;
-  String get avatar => throw _privateConstructorUsedError;
+
+  /// Аватар.
+  String? get avatar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -479,7 +504,7 @@ abstract class $DataAttributesCopyWith<$Res> {
       dynamic phone,
       String email,
       String about,
-      String avatar});
+      String? avatar});
 }
 
 /// @nodoc
@@ -507,7 +532,7 @@ class _$DataAttributesCopyWithImpl<$Res, $Val extends DataAttributes>
     Object? phone = freezed,
     Object? email = null,
     Object? about = null,
-    Object? avatar = null,
+    Object? avatar = freezed,
   }) {
     return _then(_value.copyWith(
       fullName: null == fullName
@@ -558,10 +583,10 @@ class _$DataAttributesCopyWithImpl<$Res, $Val extends DataAttributes>
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
               as String,
-      avatar: null == avatar
+      avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -587,7 +612,7 @@ abstract class _$$_DataAttributesCopyWith<$Res>
       dynamic phone,
       String email,
       String about,
-      String avatar});
+      String? avatar});
 }
 
 /// @nodoc
@@ -613,7 +638,7 @@ class __$$_DataAttributesCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? email = null,
     Object? about = null,
-    Object? avatar = null,
+    Object? avatar = freezed,
   }) {
     return _then(_$_DataAttributes(
       fullName: null == fullName
@@ -664,10 +689,10 @@ class __$$_DataAttributesCopyWithImpl<$Res>
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
               as String,
-      avatar: null == avatar
+      avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -688,37 +713,62 @@ class _$_DataAttributes implements _DataAttributes {
       required this.phone,
       required this.email,
       required this.about,
-      required this.avatar});
+      this.avatar});
 
   factory _$_DataAttributes.fromJson(Map<String, dynamic> json) =>
       _$$_DataAttributesFromJson(json);
 
+  /// Полное имя.
   @override
   final String fullName;
+
+  /// Имя.
   @override
   final String firstName;
+
+  /// Фамилия.
   @override
   final String surname;
+
+  /// Отчество.
   @override
   final String patronymic;
+
+  /// Должность.
   @override
   final String position;
+
+  /// Можно ли показывать email.
   @override
   final bool showEmail;
+
+  /// Можно ли показывать телефон.
   @override
   final bool showPhone;
+
+  ///TODO узнать что это
   @override
   final String groupName;
+
+  /// Является ли спикером.
   @override
   final bool isSpeaker;
+
+  /// Телефон.
   @override
   final dynamic phone;
+
+  /// Почта.
   @override
   final String email;
+
+  /// Описание.
   @override
   final String about;
+
+  /// Аватар.
   @override
-  final String avatar;
+  final String? avatar;
 
   @override
   String toString() {
@@ -799,37 +849,63 @@ abstract class _DataAttributes implements DataAttributes {
       required final dynamic phone,
       required final String email,
       required final String about,
-      required final String avatar}) = _$_DataAttributes;
+      final String? avatar}) = _$_DataAttributes;
 
   factory _DataAttributes.fromJson(Map<String, dynamic> json) =
       _$_DataAttributes.fromJson;
 
   @override
+
+  /// Полное имя.
   String get fullName;
   @override
+
+  /// Имя.
   String get firstName;
   @override
+
+  /// Фамилия.
   String get surname;
   @override
+
+  /// Отчество.
   String get patronymic;
   @override
+
+  /// Должность.
   String get position;
   @override
+
+  /// Можно ли показывать email.
   bool get showEmail;
   @override
+
+  /// Можно ли показывать телефон.
   bool get showPhone;
   @override
+
+  ///TODO узнать что это
   String get groupName;
   @override
+
+  /// Является ли спикером.
   bool get isSpeaker;
   @override
+
+  /// Телефон.
   dynamic get phone;
   @override
+
+  /// Почта.
   String get email;
   @override
+
+  /// Описание.
   String get about;
   @override
-  String get avatar;
+
+  /// Аватар.
+  String? get avatar;
   @override
   @JsonKey(ignore: true)
   _$$_DataAttributesCopyWith<_$_DataAttributes> get copyWith =>

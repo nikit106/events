@@ -27,6 +27,9 @@ class AppThemes {
       labelMedium: TextStyle(),
       labelSmall: TextStyle(),
     ),
+    // cardTheme: CardTheme(
+
+    // )
     // textTheme: const TextTheme(
     //   headline1: TextStyle(
     //     fontSize: 30,

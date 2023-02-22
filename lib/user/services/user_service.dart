@@ -9,10 +9,13 @@ import 'package:myevents/user/user.dart';
 class UserService {
   /// Получаем текущего User.
   Future<User?> getUser() async {
-    final Response<Map<String, dynamic>> response = await Api().dio.get(
-          Endpoints.user,
-        );
-
-    return User.fromJson(response.data ?? <String, Object>{});
+    try {
+      final Response<Map<String, dynamic>> response = await Api().dio.get(
+            Endpoints.user,
+          );
+      return User.fromJson(response.data ?? <String, Object>{});
+    } catch (e) {
+      rethrow;
+    }
   }
 }
