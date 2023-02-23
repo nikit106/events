@@ -46,45 +46,46 @@ class UserCard extends StatelessWidget {
               ),
             ),
             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Row(
-                      children: <Widget>[
-                        Avatar(
-                          isCircle: false,
-                          firstName: attributes?.firstName,
-                          surname: attributes?.surname,
-                          avatarPath: attributes?.avatar,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Row(
+                    children: <Widget>[
+                      Avatar(
+                        isCircle: false,
+                        firstName: attributes?.firstName,
+                        surname: attributes?.surname,
+                        avatarPath: attributes?.avatar,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            const Text(
+                              'Добрый день,',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(0xff8B8B8B),
+                              ),
+                            ),
+                            Text(
+                              '${attributes?.firstName ?? ''} ${attributes?.patronymic ?? ''}',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              const Text(
-                                'Добрый день,',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Color(0xff8B8B8B),
-                                ),
-                              ),
-                              Text(
-                                '${attributes?.firstName ?? ''} ${attributes?.patronymic ?? ''}',
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
-                ]),
+                ),
+              ],
+            ),
           ],
         ),
       ),

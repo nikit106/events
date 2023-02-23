@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/globals/assets/app_icons.dart';
-import 'package:myevents/globals/widgets/widgets.dart';
 import 'package:myevents/home/home.dart';
 import 'package:myevents/user/models/models.dart';
 
@@ -16,13 +16,34 @@ class HomePage extends StatelessWidget {
     return MaterialPageRoute<void>(builder: (final _) => const HomePage());
   }
 
+  /// TODO переписать.
+  /// Лист с текстами для кнопок
+  static const List<String> listOfButtonsText = <String>[
+    'Программа',
+    'Участники',
+    'Материалы',
+    'Локация',
+    'Памятка',
+    'Опросы',
+  ];
+
+  /// TODO переписать.
+  /// Лист с иконками для кнопок
+  static List<SvgPicture> listOfButtonsIcon = <SvgPicture>[
+    AppIcons.program(),
+    AppIcons.participants(),
+    AppIcons.materials(),
+    AppIcons.locations(),
+    AppIcons.memo(),
+    AppIcons.survey()
+  ];
+
   @override
   Widget build(final BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          // mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Builder(
               builder: (final BuildContext context) {
@@ -39,14 +60,12 @@ class HomePage extends StatelessWidget {
             Wrap(
               spacing: 28,
               runSpacing: 20,
-              children: [
-                Test(),
-                Test(),
-                Test(),
-                Test(),
-                Test(),
-                Test(),
-              ],
+              children: List<NavigationButton>.generate(6, (final int index) {
+                return NavigationButton(
+                  icon: listOfButtonsIcon[index],
+                  text: listOfButtonsText[index],
+                );
+              }),
             ),
             // ElevatedButton(
             //   child: const Text('Logout'),
@@ -78,44 +97,4 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class Test extends StatelessWidget {
-  const Test({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return ShadowWrapper(
-      child: InkWell(
-        splashColor: const Color(0xff5C81F7),
-        borderRadius: BorderRadius.circular(15.0),
-        onTap: () {
-          // onTap();
-        },
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.46 - 32,
-          height: MediaQuery.of(context).size.height * 0.16,
-          padding: EdgeInsets.only(top: 8, bottom: 16, left: 16, right: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Align(alignment: Alignment.centerRight, child: AppIcons.survey()),
-              FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(
-                  'опросы',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12.0,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
