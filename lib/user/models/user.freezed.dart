@@ -20,9 +20,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  UserData get data => throw _privateConstructorUsedError;
-  Links get links => throw _privateConstructorUsedError;
-  List<Included> get included => throw _privateConstructorUsedError;
+  Data? get data => throw _privateConstructorUsedError;
+  Links? get links => throw _privateConstructorUsedError;
+  List<Included>? get included => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,10 +34,10 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({UserData data, Links links, List<Included> included});
+  $Res call({Data? data, Links? links, List<Included>? included});
 
-  $UserDataCopyWith<$Res> get data;
-  $LinksCopyWith<$Res> get links;
+  $DataCopyWith<$Res>? get data;
+  $LinksCopyWith<$Res>? get links;
 }
 
 /// @nodoc
@@ -53,38 +53,46 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? links = null,
-    Object? included = null,
+    Object? data = freezed,
+    Object? links = freezed,
+    Object? included = freezed,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserData,
-      links: null == links
+              as Data?,
+      links: freezed == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links,
-      included: null == included
+              as Links?,
+      included: freezed == included
           ? _value.included
           : included // ignore: cast_nullable_to_non_nullable
-              as List<Included>,
+              as List<Included>?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserDataCopyWith<$Res> get data {
-    return $UserDataCopyWith<$Res>(_value.data, (value) {
+  $DataCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $DataCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $LinksCopyWith<$Res> get links {
-    return $LinksCopyWith<$Res>(_value.links, (value) {
+  $LinksCopyWith<$Res>? get links {
+    if (_value.links == null) {
+      return null;
+    }
+
+    return $LinksCopyWith<$Res>(_value.links!, (value) {
       return _then(_value.copyWith(links: value) as $Val);
     });
   }
@@ -96,12 +104,12 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserData data, Links links, List<Included> included});
+  $Res call({Data? data, Links? links, List<Included>? included});
 
   @override
-  $UserDataCopyWith<$Res> get data;
+  $DataCopyWith<$Res>? get data;
   @override
-  $LinksCopyWith<$Res> get links;
+  $LinksCopyWith<$Res>? get links;
 }
 
 /// @nodoc
@@ -113,23 +121,23 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? links = null,
-    Object? included = null,
+    Object? data = freezed,
+    Object? links = freezed,
+    Object? included = freezed,
   }) {
     return _then(_$_User(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserData,
-      links: null == links
+              as Data?,
+      links: freezed == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links,
-      included: null == included
+              as Links?,
+      included: freezed == included
           ? _value._included
           : included // ignore: cast_nullable_to_non_nullable
-              as List<Included>,
+              as List<Included>?,
     ));
   }
 }
@@ -137,24 +145,23 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 /// @nodoc
 @JsonSerializable()
 class _$_User implements _User {
-  const _$_User(
-      {required this.data,
-      required this.links,
-      required final List<Included> included})
+  const _$_User({this.data, this.links, final List<Included>? included})
       : _included = included;
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final UserData data;
+  final Data? data;
   @override
-  final Links links;
-  final List<Included> _included;
+  final Links? links;
+  final List<Included>? _included;
   @override
-  List<Included> get included {
+  List<Included>? get included {
+    final value = _included;
+    if (value == null) return null;
     if (_included is EqualUnmodifiableListView) return _included;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_included);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -193,59 +200,58 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final UserData data,
-      required final Links links,
-      required final List<Included> included}) = _$_User;
+      {final Data? data,
+      final Links? links,
+      final List<Included>? included}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  UserData get data;
+  Data? get data;
   @override
-  Links get links;
+  Links? get links;
   @override
-  List<Included> get included;
+  List<Included>? get included;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
 }
 
-UserData _$UserDataFromJson(Map<String, dynamic> json) {
-  return _UserData.fromJson(json);
+Data _$DataFromJson(Map<String, dynamic> json) {
+  return _Data.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UserData {
-  String get id => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  DataAttributes get attributes => throw _privateConstructorUsedError;
-  Relationships get relationships => throw _privateConstructorUsedError;
+mixin _$Data {
+  String? get id => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  DataAttributes? get attributes => throw _privateConstructorUsedError;
+  DataRelationships? get relationships => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserDataCopyWith<UserData> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DataCopyWith<Data> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserDataCopyWith<$Res> {
-  factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
-      _$UserDataCopyWithImpl<$Res, UserData>;
+abstract class $DataCopyWith<$Res> {
+  factory $DataCopyWith(Data value, $Res Function(Data) then) =
+      _$DataCopyWithImpl<$Res, Data>;
   @useResult
   $Res call(
-      {String id,
-      String type,
-      DataAttributes attributes,
-      Relationships relationships});
+      {String? id,
+      String? type,
+      DataAttributes? attributes,
+      DataRelationships? relationships});
 
-  $DataAttributesCopyWith<$Res> get attributes;
-  $RelationshipsCopyWith<$Res> get relationships;
+  $DataAttributesCopyWith<$Res>? get attributes;
+  $DataRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
-class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
-    implements $UserDataCopyWith<$Res> {
-  _$UserDataCopyWithImpl(this._value, this._then);
+class _$DataCopyWithImpl<$Res, $Val extends Data>
+    implements $DataCopyWith<$Res> {
+  _$DataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -255,135 +261,135 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? attributes = null,
-    Object? relationships = null,
+    Object? id = freezed,
+    Object? type = freezed,
+    Object? attributes = freezed,
+    Object? relationships = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      attributes: null == attributes
+              as String?,
+      attributes: freezed == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as DataAttributes,
-      relationships: null == relationships
+              as DataAttributes?,
+      relationships: freezed == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as Relationships,
+              as DataRelationships?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DataAttributesCopyWith<$Res> get attributes {
-    return $DataAttributesCopyWith<$Res>(_value.attributes, (value) {
+  $DataAttributesCopyWith<$Res>? get attributes {
+    if (_value.attributes == null) {
+      return null;
+    }
+
+    return $DataAttributesCopyWith<$Res>(_value.attributes!, (value) {
       return _then(_value.copyWith(attributes: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RelationshipsCopyWith<$Res> get relationships {
-    return $RelationshipsCopyWith<$Res>(_value.relationships, (value) {
+  $DataRelationshipsCopyWith<$Res>? get relationships {
+    if (_value.relationships == null) {
+      return null;
+    }
+
+    return $DataRelationshipsCopyWith<$Res>(_value.relationships!, (value) {
       return _then(_value.copyWith(relationships: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
-  factory _$$_UserDataCopyWith(
-          _$_UserData value, $Res Function(_$_UserData) then) =
-      __$$_UserDataCopyWithImpl<$Res>;
+abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
+  factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
+      __$$_DataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String id,
-      String type,
-      DataAttributes attributes,
-      Relationships relationships});
+      {String? id,
+      String? type,
+      DataAttributes? attributes,
+      DataRelationships? relationships});
 
   @override
-  $DataAttributesCopyWith<$Res> get attributes;
+  $DataAttributesCopyWith<$Res>? get attributes;
   @override
-  $RelationshipsCopyWith<$Res> get relationships;
+  $DataRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
-class __$$_UserDataCopyWithImpl<$Res>
-    extends _$UserDataCopyWithImpl<$Res, _$_UserData>
-    implements _$$_UserDataCopyWith<$Res> {
-  __$$_UserDataCopyWithImpl(
-      _$_UserData _value, $Res Function(_$_UserData) _then)
+class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
+    implements _$$_DataCopyWith<$Res> {
+  __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? attributes = null,
-    Object? relationships = null,
+    Object? id = freezed,
+    Object? type = freezed,
+    Object? attributes = freezed,
+    Object? relationships = freezed,
   }) {
-    return _then(_$_UserData(
-      id: null == id
+    return _then(_$_Data(
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      attributes: null == attributes
+              as String?,
+      attributes: freezed == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as DataAttributes,
-      relationships: null == relationships
+              as DataAttributes?,
+      relationships: freezed == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as Relationships,
+              as DataRelationships?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserData implements _UserData {
-  const _$_UserData(
-      {required this.id,
-      required this.type,
-      required this.attributes,
-      required this.relationships});
+class _$_Data implements _Data {
+  const _$_Data({this.id, this.type, this.attributes, this.relationships});
 
-  factory _$_UserData.fromJson(Map<String, dynamic> json) =>
-      _$$_UserDataFromJson(json);
+  factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String type;
+  final String? type;
   @override
-  final DataAttributes attributes;
+  final DataAttributes? attributes;
   @override
-  final Relationships relationships;
+  final DataRelationships? relationships;
 
   @override
   String toString() {
-    return 'UserData(id: $id, type: $type, attributes: $attributes, relationships: $relationships)';
+    return 'Data(id: $id, type: $type, attributes: $attributes, relationships: $relationships)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserData &&
+            other is _$_Data &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.attributes, attributes) ||
@@ -400,38 +406,37 @@ class _$_UserData implements _UserData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserDataCopyWith<_$_UserData> get copyWith =>
-      __$$_UserDataCopyWithImpl<_$_UserData>(this, _$identity);
+  _$$_DataCopyWith<_$_Data> get copyWith =>
+      __$$_DataCopyWithImpl<_$_Data>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserDataToJson(
+    return _$$_DataToJson(
       this,
     );
   }
 }
 
-abstract class _UserData implements UserData {
-  const factory _UserData(
-      {required final String id,
-      required final String type,
-      required final DataAttributes attributes,
-      required final Relationships relationships}) = _$_UserData;
+abstract class _Data implements Data {
+  const factory _Data(
+      {final String? id,
+      final String? type,
+      final DataAttributes? attributes,
+      final DataRelationships? relationships}) = _$_Data;
 
-  factory _UserData.fromJson(Map<String, dynamic> json) = _$_UserData.fromJson;
+  factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get type;
+  String? get type;
   @override
-  DataAttributes get attributes;
+  DataAttributes? get attributes;
   @override
-  Relationships get relationships;
+  DataRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
-  _$$_UserDataCopyWith<_$_UserData> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
 }
 
 DataAttributes _$DataAttributesFromJson(Map<String, dynamic> json) {
@@ -440,43 +445,18 @@ DataAttributes _$DataAttributesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DataAttributes {
-  /// Полное имя.
-  String get fullName => throw _privateConstructorUsedError;
-
-  /// Имя.
-  String get firstName => throw _privateConstructorUsedError;
-
-  /// Фамилия.
-  String get surname => throw _privateConstructorUsedError;
-
-  /// Отчество.
-  String get patronymic => throw _privateConstructorUsedError;
-
-  /// Должность.
-  String get position => throw _privateConstructorUsedError;
-
-  /// Можно ли показывать email.
-  bool get showEmail => throw _privateConstructorUsedError;
-
-  /// Можно ли показывать телефон.
-  bool get showPhone => throw _privateConstructorUsedError;
-
-  ///TODO узнать что это
-  String get groupName => throw _privateConstructorUsedError;
-
-  /// Является ли спикером.
-  bool get isSpeaker => throw _privateConstructorUsedError;
-
-  /// Телефон.
-  dynamic get phone => throw _privateConstructorUsedError;
-
-  /// Почта.
-  String get email => throw _privateConstructorUsedError;
-
-  /// Описание.
-  String get about => throw _privateConstructorUsedError;
-
-  /// Аватар.
+  String? get fullName => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get surname => throw _privateConstructorUsedError;
+  String? get patronymic => throw _privateConstructorUsedError;
+  String? get position => throw _privateConstructorUsedError;
+  bool? get showEmail => throw _privateConstructorUsedError;
+  bool? get showPhone => throw _privateConstructorUsedError;
+  String? get groupName => throw _privateConstructorUsedError;
+  bool? get isSpeaker => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get about => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -492,18 +472,18 @@ abstract class $DataAttributesCopyWith<$Res> {
       _$DataAttributesCopyWithImpl<$Res, DataAttributes>;
   @useResult
   $Res call(
-      {String fullName,
-      String firstName,
-      String surname,
-      String patronymic,
-      String position,
-      bool showEmail,
-      bool showPhone,
-      String groupName,
-      bool isSpeaker,
-      dynamic phone,
-      String email,
-      String about,
+      {String? fullName,
+      String? firstName,
+      String? surname,
+      String? patronymic,
+      String? position,
+      bool? showEmail,
+      bool? showPhone,
+      String? groupName,
+      bool? isSpeaker,
+      String? phone,
+      String? email,
+      String? about,
       String? avatar});
 }
 
@@ -520,69 +500,69 @@ class _$DataAttributesCopyWithImpl<$Res, $Val extends DataAttributes>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullName = null,
-    Object? firstName = null,
-    Object? surname = null,
-    Object? patronymic = null,
-    Object? position = null,
-    Object? showEmail = null,
-    Object? showPhone = null,
-    Object? groupName = null,
-    Object? isSpeaker = null,
+    Object? fullName = freezed,
+    Object? firstName = freezed,
+    Object? surname = freezed,
+    Object? patronymic = freezed,
+    Object? position = freezed,
+    Object? showEmail = freezed,
+    Object? showPhone = freezed,
+    Object? groupName = freezed,
+    Object? isSpeaker = freezed,
     Object? phone = freezed,
-    Object? email = null,
-    Object? about = null,
+    Object? email = freezed,
+    Object? about = freezed,
     Object? avatar = freezed,
   }) {
     return _then(_value.copyWith(
-      fullName: null == fullName
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
+              as String?,
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      surname: null == surname
+              as String?,
+      surname: freezed == surname
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
-              as String,
-      patronymic: null == patronymic
+              as String?,
+      patronymic: freezed == patronymic
           ? _value.patronymic
           : patronymic // ignore: cast_nullable_to_non_nullable
-              as String,
-      position: null == position
+              as String?,
+      position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as String,
-      showEmail: null == showEmail
+              as String?,
+      showEmail: freezed == showEmail
           ? _value.showEmail
           : showEmail // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showPhone: null == showPhone
+              as bool?,
+      showPhone: freezed == showPhone
           ? _value.showPhone
           : showPhone // ignore: cast_nullable_to_non_nullable
-              as bool,
-      groupName: null == groupName
+              as bool?,
+      groupName: freezed == groupName
           ? _value.groupName
           : groupName // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSpeaker: null == isSpeaker
+              as String?,
+      isSpeaker: freezed == isSpeaker
           ? _value.isSpeaker
           : isSpeaker // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      about: null == about
+              as String?,
+      about: freezed == about
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -600,18 +580,18 @@ abstract class _$$_DataAttributesCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String fullName,
-      String firstName,
-      String surname,
-      String patronymic,
-      String position,
-      bool showEmail,
-      bool showPhone,
-      String groupName,
-      bool isSpeaker,
-      dynamic phone,
-      String email,
-      String about,
+      {String? fullName,
+      String? firstName,
+      String? surname,
+      String? patronymic,
+      String? position,
+      bool? showEmail,
+      bool? showPhone,
+      String? groupName,
+      bool? isSpeaker,
+      String? phone,
+      String? email,
+      String? about,
       String? avatar});
 }
 
@@ -626,69 +606,69 @@ class __$$_DataAttributesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullName = null,
-    Object? firstName = null,
-    Object? surname = null,
-    Object? patronymic = null,
-    Object? position = null,
-    Object? showEmail = null,
-    Object? showPhone = null,
-    Object? groupName = null,
-    Object? isSpeaker = null,
+    Object? fullName = freezed,
+    Object? firstName = freezed,
+    Object? surname = freezed,
+    Object? patronymic = freezed,
+    Object? position = freezed,
+    Object? showEmail = freezed,
+    Object? showPhone = freezed,
+    Object? groupName = freezed,
+    Object? isSpeaker = freezed,
     Object? phone = freezed,
-    Object? email = null,
-    Object? about = null,
+    Object? email = freezed,
+    Object? about = freezed,
     Object? avatar = freezed,
   }) {
     return _then(_$_DataAttributes(
-      fullName: null == fullName
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: null == firstName
+              as String?,
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      surname: null == surname
+              as String?,
+      surname: freezed == surname
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
-              as String,
-      patronymic: null == patronymic
+              as String?,
+      patronymic: freezed == patronymic
           ? _value.patronymic
           : patronymic // ignore: cast_nullable_to_non_nullable
-              as String,
-      position: null == position
+              as String?,
+      position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as String,
-      showEmail: null == showEmail
+              as String?,
+      showEmail: freezed == showEmail
           ? _value.showEmail
           : showEmail // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showPhone: null == showPhone
+              as bool?,
+      showPhone: freezed == showPhone
           ? _value.showPhone
           : showPhone // ignore: cast_nullable_to_non_nullable
-              as bool,
-      groupName: null == groupName
+              as bool?,
+      groupName: freezed == groupName
           ? _value.groupName
           : groupName // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSpeaker: null == isSpeaker
+              as String?,
+      isSpeaker: freezed == isSpeaker
           ? _value.isSpeaker
           : isSpeaker // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      about: null == about
+              as String?,
+      about: freezed == about
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -701,72 +681,47 @@ class __$$_DataAttributesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DataAttributes implements _DataAttributes {
   const _$_DataAttributes(
-      {required this.fullName,
-      required this.firstName,
-      required this.surname,
-      required this.patronymic,
-      required this.position,
-      required this.showEmail,
-      required this.showPhone,
-      required this.groupName,
-      required this.isSpeaker,
-      required this.phone,
-      required this.email,
-      required this.about,
+      {this.fullName,
+      this.firstName,
+      this.surname,
+      this.patronymic,
+      this.position,
+      this.showEmail,
+      this.showPhone,
+      this.groupName,
+      this.isSpeaker,
+      this.phone,
+      this.email,
+      this.about,
       this.avatar});
 
   factory _$_DataAttributes.fromJson(Map<String, dynamic> json) =>
       _$$_DataAttributesFromJson(json);
 
-  /// Полное имя.
   @override
-  final String fullName;
-
-  /// Имя.
+  final String? fullName;
   @override
-  final String firstName;
-
-  /// Фамилия.
+  final String? firstName;
   @override
-  final String surname;
-
-  /// Отчество.
+  final String? surname;
   @override
-  final String patronymic;
-
-  /// Должность.
+  final String? patronymic;
   @override
-  final String position;
-
-  /// Можно ли показывать email.
+  final String? position;
   @override
-  final bool showEmail;
-
-  /// Можно ли показывать телефон.
+  final bool? showEmail;
   @override
-  final bool showPhone;
-
-  ///TODO узнать что это
+  final bool? showPhone;
   @override
-  final String groupName;
-
-  /// Является ли спикером.
+  final String? groupName;
   @override
-  final bool isSpeaker;
-
-  /// Телефон.
+  final bool? isSpeaker;
   @override
-  final dynamic phone;
-
-  /// Почта.
+  final String? phone;
   @override
-  final String email;
-
-  /// Описание.
+  final String? email;
   @override
-  final String about;
-
-  /// Аватар.
+  final String? about;
   @override
   final String? avatar;
 
@@ -797,7 +752,7 @@ class _$_DataAttributes implements _DataAttributes {
                 other.groupName == groupName) &&
             (identical(other.isSpeaker, isSpeaker) ||
                 other.isSpeaker == isSpeaker) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.about, about) || other.about == about) &&
             (identical(other.avatar, avatar) || other.avatar == avatar));
@@ -816,7 +771,7 @@ class _$_DataAttributes implements _DataAttributes {
       showPhone,
       groupName,
       isSpeaker,
-      const DeepCollectionEquality().hash(phone),
+      phone,
       email,
       about,
       avatar);
@@ -837,74 +792,48 @@ class _$_DataAttributes implements _DataAttributes {
 
 abstract class _DataAttributes implements DataAttributes {
   const factory _DataAttributes(
-      {required final String fullName,
-      required final String firstName,
-      required final String surname,
-      required final String patronymic,
-      required final String position,
-      required final bool showEmail,
-      required final bool showPhone,
-      required final String groupName,
-      required final bool isSpeaker,
-      required final dynamic phone,
-      required final String email,
-      required final String about,
+      {final String? fullName,
+      final String? firstName,
+      final String? surname,
+      final String? patronymic,
+      final String? position,
+      final bool? showEmail,
+      final bool? showPhone,
+      final String? groupName,
+      final bool? isSpeaker,
+      final String? phone,
+      final String? email,
+      final String? about,
       final String? avatar}) = _$_DataAttributes;
 
   factory _DataAttributes.fromJson(Map<String, dynamic> json) =
       _$_DataAttributes.fromJson;
 
   @override
-
-  /// Полное имя.
-  String get fullName;
+  String? get fullName;
   @override
-
-  /// Имя.
-  String get firstName;
+  String? get firstName;
   @override
-
-  /// Фамилия.
-  String get surname;
+  String? get surname;
   @override
-
-  /// Отчество.
-  String get patronymic;
+  String? get patronymic;
   @override
-
-  /// Должность.
-  String get position;
+  String? get position;
   @override
-
-  /// Можно ли показывать email.
-  bool get showEmail;
+  bool? get showEmail;
   @override
-
-  /// Можно ли показывать телефон.
-  bool get showPhone;
+  bool? get showPhone;
   @override
-
-  ///TODO узнать что это
-  String get groupName;
+  String? get groupName;
   @override
-
-  /// Является ли спикером.
-  bool get isSpeaker;
+  bool? get isSpeaker;
   @override
-
-  /// Телефон.
-  dynamic get phone;
+  String? get phone;
   @override
-
-  /// Почта.
-  String get email;
+  String? get email;
   @override
-
-  /// Описание.
-  String get about;
+  String? get about;
   @override
-
-  /// Аватар.
   String? get avatar;
   @override
   @JsonKey(ignore: true)
@@ -912,39 +841,39 @@ abstract class _DataAttributes implements DataAttributes {
       throw _privateConstructorUsedError;
 }
 
-Relationships _$RelationshipsFromJson(Map<String, dynamic> json) {
-  return _Relationships.fromJson(json);
+DataRelationships _$DataRelationshipsFromJson(Map<String, dynamic> json) {
+  return _DataRelationships.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Relationships {
-  Department get department => throw _privateConstructorUsedError;
-  Contacts get contacts => throw _privateConstructorUsedError;
-  Contacts get speeches => throw _privateConstructorUsedError;
+mixin _$DataRelationships {
+  Department? get department => throw _privateConstructorUsedError;
+  Contacts? get contacts => throw _privateConstructorUsedError;
+  Contacts? get speeches => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RelationshipsCopyWith<Relationships> get copyWith =>
+  $DataRelationshipsCopyWith<DataRelationships> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RelationshipsCopyWith<$Res> {
-  factory $RelationshipsCopyWith(
-          Relationships value, $Res Function(Relationships) then) =
-      _$RelationshipsCopyWithImpl<$Res, Relationships>;
+abstract class $DataRelationshipsCopyWith<$Res> {
+  factory $DataRelationshipsCopyWith(
+          DataRelationships value, $Res Function(DataRelationships) then) =
+      _$DataRelationshipsCopyWithImpl<$Res, DataRelationships>;
   @useResult
-  $Res call({Department department, Contacts contacts, Contacts speeches});
+  $Res call({Department? department, Contacts? contacts, Contacts? speeches});
 
-  $DepartmentCopyWith<$Res> get department;
-  $ContactsCopyWith<$Res> get contacts;
-  $ContactsCopyWith<$Res> get speeches;
+  $DepartmentCopyWith<$Res>? get department;
+  $ContactsCopyWith<$Res>? get contacts;
+  $ContactsCopyWith<$Res>? get speeches;
 }
 
 /// @nodoc
-class _$RelationshipsCopyWithImpl<$Res, $Val extends Relationships>
-    implements $RelationshipsCopyWith<$Res> {
-  _$RelationshipsCopyWithImpl(this._value, this._then);
+class _$DataRelationshipsCopyWithImpl<$Res, $Val extends DataRelationships>
+    implements $DataRelationshipsCopyWith<$Res> {
+  _$DataRelationshipsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -954,129 +883,138 @@ class _$RelationshipsCopyWithImpl<$Res, $Val extends Relationships>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? department = null,
-    Object? contacts = null,
-    Object? speeches = null,
+    Object? department = freezed,
+    Object? contacts = freezed,
+    Object? speeches = freezed,
   }) {
     return _then(_value.copyWith(
-      department: null == department
+      department: freezed == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
-              as Department,
-      contacts: null == contacts
+              as Department?,
+      contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
-              as Contacts,
-      speeches: null == speeches
+              as Contacts?,
+      speeches: freezed == speeches
           ? _value.speeches
           : speeches // ignore: cast_nullable_to_non_nullable
-              as Contacts,
+              as Contacts?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DepartmentCopyWith<$Res> get department {
-    return $DepartmentCopyWith<$Res>(_value.department, (value) {
+  $DepartmentCopyWith<$Res>? get department {
+    if (_value.department == null) {
+      return null;
+    }
+
+    return $DepartmentCopyWith<$Res>(_value.department!, (value) {
       return _then(_value.copyWith(department: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ContactsCopyWith<$Res> get contacts {
-    return $ContactsCopyWith<$Res>(_value.contacts, (value) {
+  $ContactsCopyWith<$Res>? get contacts {
+    if (_value.contacts == null) {
+      return null;
+    }
+
+    return $ContactsCopyWith<$Res>(_value.contacts!, (value) {
       return _then(_value.copyWith(contacts: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ContactsCopyWith<$Res> get speeches {
-    return $ContactsCopyWith<$Res>(_value.speeches, (value) {
+  $ContactsCopyWith<$Res>? get speeches {
+    if (_value.speeches == null) {
+      return null;
+    }
+
+    return $ContactsCopyWith<$Res>(_value.speeches!, (value) {
       return _then(_value.copyWith(speeches: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_RelationshipsCopyWith<$Res>
-    implements $RelationshipsCopyWith<$Res> {
-  factory _$$_RelationshipsCopyWith(
-          _$_Relationships value, $Res Function(_$_Relationships) then) =
-      __$$_RelationshipsCopyWithImpl<$Res>;
+abstract class _$$_DataRelationshipsCopyWith<$Res>
+    implements $DataRelationshipsCopyWith<$Res> {
+  factory _$$_DataRelationshipsCopyWith(_$_DataRelationships value,
+          $Res Function(_$_DataRelationships) then) =
+      __$$_DataRelationshipsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Department department, Contacts contacts, Contacts speeches});
+  $Res call({Department? department, Contacts? contacts, Contacts? speeches});
 
   @override
-  $DepartmentCopyWith<$Res> get department;
+  $DepartmentCopyWith<$Res>? get department;
   @override
-  $ContactsCopyWith<$Res> get contacts;
+  $ContactsCopyWith<$Res>? get contacts;
   @override
-  $ContactsCopyWith<$Res> get speeches;
+  $ContactsCopyWith<$Res>? get speeches;
 }
 
 /// @nodoc
-class __$$_RelationshipsCopyWithImpl<$Res>
-    extends _$RelationshipsCopyWithImpl<$Res, _$_Relationships>
-    implements _$$_RelationshipsCopyWith<$Res> {
-  __$$_RelationshipsCopyWithImpl(
-      _$_Relationships _value, $Res Function(_$_Relationships) _then)
+class __$$_DataRelationshipsCopyWithImpl<$Res>
+    extends _$DataRelationshipsCopyWithImpl<$Res, _$_DataRelationships>
+    implements _$$_DataRelationshipsCopyWith<$Res> {
+  __$$_DataRelationshipsCopyWithImpl(
+      _$_DataRelationships _value, $Res Function(_$_DataRelationships) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? department = null,
-    Object? contacts = null,
-    Object? speeches = null,
+    Object? department = freezed,
+    Object? contacts = freezed,
+    Object? speeches = freezed,
   }) {
-    return _then(_$_Relationships(
-      department: null == department
+    return _then(_$_DataRelationships(
+      department: freezed == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
-              as Department,
-      contacts: null == contacts
+              as Department?,
+      contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
-              as Contacts,
-      speeches: null == speeches
+              as Contacts?,
+      speeches: freezed == speeches
           ? _value.speeches
           : speeches // ignore: cast_nullable_to_non_nullable
-              as Contacts,
+              as Contacts?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Relationships implements _Relationships {
-  const _$_Relationships(
-      {required this.department,
-      required this.contacts,
-      required this.speeches});
+class _$_DataRelationships implements _DataRelationships {
+  const _$_DataRelationships({this.department, this.contacts, this.speeches});
 
-  factory _$_Relationships.fromJson(Map<String, dynamic> json) =>
-      _$$_RelationshipsFromJson(json);
+  factory _$_DataRelationships.fromJson(Map<String, dynamic> json) =>
+      _$$_DataRelationshipsFromJson(json);
 
   @override
-  final Department department;
+  final Department? department;
   @override
-  final Contacts contacts;
+  final Contacts? contacts;
   @override
-  final Contacts speeches;
+  final Contacts? speeches;
 
   @override
   String toString() {
-    return 'Relationships(department: $department, contacts: $contacts, speeches: $speeches)';
+    return 'DataRelationships(department: $department, contacts: $contacts, speeches: $speeches)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Relationships &&
+            other is _$_DataRelationships &&
             (identical(other.department, department) ||
                 other.department == department) &&
             (identical(other.contacts, contacts) ||
@@ -1092,35 +1030,36 @@ class _$_Relationships implements _Relationships {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RelationshipsCopyWith<_$_Relationships> get copyWith =>
-      __$$_RelationshipsCopyWithImpl<_$_Relationships>(this, _$identity);
+  _$$_DataRelationshipsCopyWith<_$_DataRelationships> get copyWith =>
+      __$$_DataRelationshipsCopyWithImpl<_$_DataRelationships>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RelationshipsToJson(
+    return _$$_DataRelationshipsToJson(
       this,
     );
   }
 }
 
-abstract class _Relationships implements Relationships {
-  const factory _Relationships(
-      {required final Department department,
-      required final Contacts contacts,
-      required final Contacts speeches}) = _$_Relationships;
+abstract class _DataRelationships implements DataRelationships {
+  const factory _DataRelationships(
+      {final Department? department,
+      final Contacts? contacts,
+      final Contacts? speeches}) = _$_DataRelationships;
 
-  factory _Relationships.fromJson(Map<String, dynamic> json) =
-      _$_Relationships.fromJson;
+  factory _DataRelationships.fromJson(Map<String, dynamic> json) =
+      _$_DataRelationships.fromJson;
 
   @override
-  Department get department;
+  Department? get department;
   @override
-  Contacts get contacts;
+  Contacts? get contacts;
   @override
-  Contacts get speeches;
+  Contacts? get speeches;
   @override
   @JsonKey(ignore: true)
-  _$$_RelationshipsCopyWith<_$_Relationships> get copyWith =>
+  _$$_DataRelationshipsCopyWith<_$_DataRelationships> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1130,7 +1069,7 @@ Contacts _$ContactsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Contacts {
-  List<dynamic> get data => throw _privateConstructorUsedError;
+  List<Dat>? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1143,7 +1082,7 @@ abstract class $ContactsCopyWith<$Res> {
   factory $ContactsCopyWith(Contacts value, $Res Function(Contacts) then) =
       _$ContactsCopyWithImpl<$Res, Contacts>;
   @useResult
-  $Res call({List<dynamic> data});
+  $Res call({List<Dat>? data});
 }
 
 /// @nodoc
@@ -1159,13 +1098,13 @@ class _$ContactsCopyWithImpl<$Res, $Val extends Contacts>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Dat>?,
     ) as $Val);
   }
 }
@@ -1177,7 +1116,7 @@ abstract class _$$_ContactsCopyWith<$Res> implements $ContactsCopyWith<$Res> {
       __$$_ContactsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<dynamic> data});
+  $Res call({List<Dat>? data});
 }
 
 /// @nodoc
@@ -1191,13 +1130,13 @@ class __$$_ContactsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$_Contacts(
-      data: null == data
+      data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Dat>?,
     ));
   }
 }
@@ -1205,17 +1144,19 @@ class __$$_ContactsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Contacts implements _Contacts {
-  const _$_Contacts({required final List<dynamic> data}) : _data = data;
+  const _$_Contacts({final List<Dat>? data}) : _data = data;
 
   factory _$_Contacts.fromJson(Map<String, dynamic> json) =>
       _$$_ContactsFromJson(json);
 
-  final List<dynamic> _data;
+  final List<Dat>? _data;
   @override
-  List<dynamic> get data {
+  List<Dat>? get data {
+    final value = _data;
+    if (value == null) return null;
     if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_data);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -1251,16 +1192,158 @@ class _$_Contacts implements _Contacts {
 }
 
 abstract class _Contacts implements Contacts {
-  const factory _Contacts({required final List<dynamic> data}) = _$_Contacts;
+  const factory _Contacts({final List<Dat>? data}) = _$_Contacts;
 
   factory _Contacts.fromJson(Map<String, dynamic> json) = _$_Contacts.fromJson;
 
   @override
-  List<dynamic> get data;
+  List<Dat>? get data;
   @override
   @JsonKey(ignore: true)
   _$$_ContactsCopyWith<_$_Contacts> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+Dat _$DatFromJson(Map<String, dynamic> json) {
+  return _Dat.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Dat {
+  String? get id => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DatCopyWith<Dat> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DatCopyWith<$Res> {
+  factory $DatCopyWith(Dat value, $Res Function(Dat) then) =
+      _$DatCopyWithImpl<$Res, Dat>;
+  @useResult
+  $Res call({String? id, String? type});
+}
+
+/// @nodoc
+class _$DatCopyWithImpl<$Res, $Val extends Dat> implements $DatCopyWith<$Res> {
+  _$DatCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? type = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_DatCopyWith<$Res> implements $DatCopyWith<$Res> {
+  factory _$$_DatCopyWith(_$_Dat value, $Res Function(_$_Dat) then) =
+      __$$_DatCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? id, String? type});
+}
+
+/// @nodoc
+class __$$_DatCopyWithImpl<$Res> extends _$DatCopyWithImpl<$Res, _$_Dat>
+    implements _$$_DatCopyWith<$Res> {
+  __$$_DatCopyWithImpl(_$_Dat _value, $Res Function(_$_Dat) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? type = freezed,
+  }) {
+    return _then(_$_Dat(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Dat implements _Dat {
+  const _$_Dat({this.id, this.type});
+
+  factory _$_Dat.fromJson(Map<String, dynamic> json) => _$$_DatFromJson(json);
+
+  @override
+  final String? id;
+  @override
+  final String? type;
+
+  @override
+  String toString() {
+    return 'Dat(id: $id, type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Dat &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, type);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DatCopyWith<_$_Dat> get copyWith =>
+      __$$_DatCopyWithImpl<_$_Dat>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_DatToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Dat implements Dat {
+  const factory _Dat({final String? id, final String? type}) = _$_Dat;
+
+  factory _Dat.fromJson(Map<String, dynamic> json) = _$_Dat.fromJson;
+
+  @override
+  String? get id;
+  @override
+  String? get type;
+  @override
+  @JsonKey(ignore: true)
+  _$$_DatCopyWith<_$_Dat> get copyWith => throw _privateConstructorUsedError;
 }
 
 Department _$DepartmentFromJson(Map<String, dynamic> json) {
@@ -1269,7 +1352,7 @@ Department _$DepartmentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Department {
-  DepartmentData get data => throw _privateConstructorUsedError;
+  Dat? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1283,9 +1366,9 @@ abstract class $DepartmentCopyWith<$Res> {
           Department value, $Res Function(Department) then) =
       _$DepartmentCopyWithImpl<$Res, Department>;
   @useResult
-  $Res call({DepartmentData data});
+  $Res call({Dat? data});
 
-  $DepartmentDataCopyWith<$Res> get data;
+  $DatCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -1301,20 +1384,24 @@ class _$DepartmentCopyWithImpl<$Res, $Val extends Department>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as DepartmentData,
+              as Dat?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DepartmentDataCopyWith<$Res> get data {
-    return $DepartmentDataCopyWith<$Res>(_value.data, (value) {
+  $DatCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $DatCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
@@ -1328,10 +1415,10 @@ abstract class _$$_DepartmentCopyWith<$Res>
       __$$_DepartmentCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DepartmentData data});
+  $Res call({Dat? data});
 
   @override
-  $DepartmentDataCopyWith<$Res> get data;
+  $DatCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -1345,13 +1432,13 @@ class __$$_DepartmentCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$_Department(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as DepartmentData,
+              as Dat?,
     ));
   }
 }
@@ -1359,13 +1446,13 @@ class __$$_DepartmentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Department implements _Department {
-  const _$_Department({required this.data});
+  const _$_Department({this.data});
 
   factory _$_Department.fromJson(Map<String, dynamic> json) =>
       _$$_DepartmentFromJson(json);
 
   @override
-  final DepartmentData data;
+  final Dat? data;
 
   @override
   String toString() {
@@ -1399,171 +1486,16 @@ class _$_Department implements _Department {
 }
 
 abstract class _Department implements Department {
-  const factory _Department({required final DepartmentData data}) =
-      _$_Department;
+  const factory _Department({final Dat? data}) = _$_Department;
 
   factory _Department.fromJson(Map<String, dynamic> json) =
       _$_Department.fromJson;
 
   @override
-  DepartmentData get data;
+  Dat? get data;
   @override
   @JsonKey(ignore: true)
   _$$_DepartmentCopyWith<_$_Department> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-DepartmentData _$DepartmentDataFromJson(Map<String, dynamic> json) {
-  return _DepartmentData.fromJson(json);
-}
-
-/// @nodoc
-mixin _$DepartmentData {
-  String get id => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DepartmentDataCopyWith<DepartmentData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DepartmentDataCopyWith<$Res> {
-  factory $DepartmentDataCopyWith(
-          DepartmentData value, $Res Function(DepartmentData) then) =
-      _$DepartmentDataCopyWithImpl<$Res, DepartmentData>;
-  @useResult
-  $Res call({String id, String type});
-}
-
-/// @nodoc
-class _$DepartmentDataCopyWithImpl<$Res, $Val extends DepartmentData>
-    implements $DepartmentDataCopyWith<$Res> {
-  _$DepartmentDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_DepartmentDataCopyWith<$Res>
-    implements $DepartmentDataCopyWith<$Res> {
-  factory _$$_DepartmentDataCopyWith(
-          _$_DepartmentData value, $Res Function(_$_DepartmentData) then) =
-      __$$_DepartmentDataCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String type});
-}
-
-/// @nodoc
-class __$$_DepartmentDataCopyWithImpl<$Res>
-    extends _$DepartmentDataCopyWithImpl<$Res, _$_DepartmentData>
-    implements _$$_DepartmentDataCopyWith<$Res> {
-  __$$_DepartmentDataCopyWithImpl(
-      _$_DepartmentData _value, $Res Function(_$_DepartmentData) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? type = null,
-  }) {
-    return _then(_$_DepartmentData(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_DepartmentData implements _DepartmentData {
-  const _$_DepartmentData({required this.id, required this.type});
-
-  factory _$_DepartmentData.fromJson(Map<String, dynamic> json) =>
-      _$$_DepartmentDataFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String type;
-
-  @override
-  String toString() {
-    return 'DepartmentData(id: $id, type: $type)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_DepartmentData &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, type);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_DepartmentDataCopyWith<_$_DepartmentData> get copyWith =>
-      __$$_DepartmentDataCopyWithImpl<_$_DepartmentData>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_DepartmentDataToJson(
-      this,
-    );
-  }
-}
-
-abstract class _DepartmentData implements DepartmentData {
-  const factory _DepartmentData(
-      {required final String id,
-      required final String type}) = _$_DepartmentData;
-
-  factory _DepartmentData.fromJson(Map<String, dynamic> json) =
-      _$_DepartmentData.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get type;
-  @override
-  @JsonKey(ignore: true)
-  _$$_DepartmentDataCopyWith<_$_DepartmentData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1573,9 +1505,11 @@ Included _$IncludedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Included {
-  String get id => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  IncludedAttributes get attributes => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  IncludedAttributes? get attributes => throw _privateConstructorUsedError;
+  IncludedRelationships? get relationships =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1588,9 +1522,14 @@ abstract class $IncludedCopyWith<$Res> {
   factory $IncludedCopyWith(Included value, $Res Function(Included) then) =
       _$IncludedCopyWithImpl<$Res, Included>;
   @useResult
-  $Res call({String id, String type, IncludedAttributes attributes});
+  $Res call(
+      {String? id,
+      String? type,
+      IncludedAttributes? attributes,
+      IncludedRelationships? relationships});
 
-  $IncludedAttributesCopyWith<$Res> get attributes;
+  $IncludedAttributesCopyWith<$Res>? get attributes;
+  $IncludedRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -1606,31 +1545,52 @@ class _$IncludedCopyWithImpl<$Res, $Val extends Included>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? attributes = null,
+    Object? id = freezed,
+    Object? type = freezed,
+    Object? attributes = freezed,
+    Object? relationships = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      attributes: null == attributes
+              as String?,
+      attributes: freezed == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as IncludedAttributes,
+              as IncludedAttributes?,
+      relationships: freezed == relationships
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as IncludedRelationships?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $IncludedAttributesCopyWith<$Res> get attributes {
-    return $IncludedAttributesCopyWith<$Res>(_value.attributes, (value) {
+  $IncludedAttributesCopyWith<$Res>? get attributes {
+    if (_value.attributes == null) {
+      return null;
+    }
+
+    return $IncludedAttributesCopyWith<$Res>(_value.attributes!, (value) {
       return _then(_value.copyWith(attributes: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $IncludedRelationshipsCopyWith<$Res>? get relationships {
+    if (_value.relationships == null) {
+      return null;
+    }
+
+    return $IncludedRelationshipsCopyWith<$Res>(_value.relationships!, (value) {
+      return _then(_value.copyWith(relationships: value) as $Val);
     });
   }
 }
@@ -1642,10 +1602,16 @@ abstract class _$$_IncludedCopyWith<$Res> implements $IncludedCopyWith<$Res> {
       __$$_IncludedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String type, IncludedAttributes attributes});
+  $Res call(
+      {String? id,
+      String? type,
+      IncludedAttributes? attributes,
+      IncludedRelationships? relationships});
 
   @override
-  $IncludedAttributesCopyWith<$Res> get attributes;
+  $IncludedAttributesCopyWith<$Res>? get attributes;
+  @override
+  $IncludedRelationshipsCopyWith<$Res>? get relationships;
 }
 
 /// @nodoc
@@ -1659,23 +1625,28 @@ class __$$_IncludedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? attributes = null,
+    Object? id = freezed,
+    Object? type = freezed,
+    Object? attributes = freezed,
+    Object? relationships = freezed,
   }) {
     return _then(_$_Included(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      attributes: null == attributes
+              as String?,
+      attributes: freezed == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as IncludedAttributes,
+              as IncludedAttributes?,
+      relationships: freezed == relationships
+          ? _value.relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as IncludedRelationships?,
     ));
   }
 }
@@ -1683,22 +1654,23 @@ class __$$_IncludedCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Included implements _Included {
-  const _$_Included(
-      {required this.id, required this.type, required this.attributes});
+  const _$_Included({this.id, this.type, this.attributes, this.relationships});
 
   factory _$_Included.fromJson(Map<String, dynamic> json) =>
       _$$_IncludedFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String type;
+  final String? type;
   @override
-  final IncludedAttributes attributes;
+  final IncludedAttributes? attributes;
+  @override
+  final IncludedRelationships? relationships;
 
   @override
   String toString() {
-    return 'Included(id: $id, type: $type, attributes: $attributes)';
+    return 'Included(id: $id, type: $type, attributes: $attributes, relationships: $relationships)';
   }
 
   @override
@@ -1709,12 +1681,15 @@ class _$_Included implements _Included {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.attributes, attributes) ||
-                other.attributes == attributes));
+                other.attributes == attributes) &&
+            (identical(other.relationships, relationships) ||
+                other.relationships == relationships));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, type, attributes);
+  int get hashCode =>
+      Object.hash(runtimeType, id, type, attributes, relationships);
 
   @JsonKey(ignore: true)
   @override
@@ -1732,18 +1707,21 @@ class _$_Included implements _Included {
 
 abstract class _Included implements Included {
   const factory _Included(
-      {required final String id,
-      required final String type,
-      required final IncludedAttributes attributes}) = _$_Included;
+      {final String? id,
+      final String? type,
+      final IncludedAttributes? attributes,
+      final IncludedRelationships? relationships}) = _$_Included;
 
   factory _Included.fromJson(Map<String, dynamic> json) = _$_Included.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get type;
+  String? get type;
   @override
-  IncludedAttributes get attributes;
+  IncludedAttributes? get attributes;
+  @override
+  IncludedRelationships? get relationships;
   @override
   @JsonKey(ignore: true)
   _$$_IncludedCopyWith<_$_Included> get copyWith =>
@@ -1756,8 +1734,27 @@ IncludedAttributes _$IncludedAttributesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IncludedAttributes {
-  String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get mark => throw _privateConstructorUsedError;
+  String? get latitude => throw _privateConstructorUsedError;
+  String? get longitude => throw _privateConstructorUsedError;
+  int? get order => throw _privateConstructorUsedError;
+  String? get cover => throw _privateConstructorUsedError;
+  String? get titleTranslit => throw _privateConstructorUsedError;
+  DateTime? get startedAt => throw _privateConstructorUsedError;
+  DateTime? get endedAt => throw _privateConstructorUsedError;
+  String? get startedAtTime => throw _privateConstructorUsedError;
+  String? get endedAtTime => throw _privateConstructorUsedError;
+  String? get sessionUrl => throw _privateConstructorUsedError;
+  String? get shape => throw _privateConstructorUsedError;
+  String? get currentSurvey => throw _privateConstructorUsedError;
+  bool? get isLive => throw _privateConstructorUsedError;
+  bool? get isFavorite => throw _privateConstructorUsedError;
+  bool? get isRegistered => throw _privateConstructorUsedError;
+  int? get participants => throw _privateConstructorUsedError;
+  bool? get isCurrentUserSpeaker => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1771,7 +1768,28 @@ abstract class $IncludedAttributesCopyWith<$Res> {
           IncludedAttributes value, $Res Function(IncludedAttributes) then) =
       _$IncludedAttributesCopyWithImpl<$Res, IncludedAttributes>;
   @useResult
-  $Res call({String name, String description});
+  $Res call(
+      {String? name,
+      String? description,
+      String? title,
+      String? mark,
+      String? latitude,
+      String? longitude,
+      int? order,
+      String? cover,
+      String? titleTranslit,
+      DateTime? startedAt,
+      DateTime? endedAt,
+      String? startedAtTime,
+      String? endedAtTime,
+      String? sessionUrl,
+      String? shape,
+      String? currentSurvey,
+      bool? isLive,
+      bool? isFavorite,
+      bool? isRegistered,
+      int? participants,
+      bool? isCurrentUserSpeaker});
 }
 
 /// @nodoc
@@ -1787,18 +1805,113 @@ class _$IncludedAttributesCopyWithImpl<$Res, $Val extends IncludedAttributes>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? description = null,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? title = freezed,
+    Object? mark = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? order = freezed,
+    Object? cover = freezed,
+    Object? titleTranslit = freezed,
+    Object? startedAt = freezed,
+    Object? endedAt = freezed,
+    Object? startedAtTime = freezed,
+    Object? endedAtTime = freezed,
+    Object? sessionUrl = freezed,
+    Object? shape = freezed,
+    Object? currentSurvey = freezed,
+    Object? isLive = freezed,
+    Object? isFavorite = freezed,
+    Object? isRegistered = freezed,
+    Object? participants = freezed,
+    Object? isCurrentUserSpeaker = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      mark: freezed == mark
+          ? _value.mark
+          : mark // ignore: cast_nullable_to_non_nullable
+              as String?,
+      latitude: freezed == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as String?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as String?,
+      order: freezed == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int?,
+      cover: freezed == cover
+          ? _value.cover
+          : cover // ignore: cast_nullable_to_non_nullable
+              as String?,
+      titleTranslit: freezed == titleTranslit
+          ? _value.titleTranslit
+          : titleTranslit // ignore: cast_nullable_to_non_nullable
+              as String?,
+      startedAt: freezed == startedAt
+          ? _value.startedAt
+          : startedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endedAt: freezed == endedAt
+          ? _value.endedAt
+          : endedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      startedAtTime: freezed == startedAtTime
+          ? _value.startedAtTime
+          : startedAtTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      endedAtTime: freezed == endedAtTime
+          ? _value.endedAtTime
+          : endedAtTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sessionUrl: freezed == sessionUrl
+          ? _value.sessionUrl
+          : sessionUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shape: freezed == shape
+          ? _value.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currentSurvey: freezed == currentSurvey
+          ? _value.currentSurvey
+          : currentSurvey // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLive: freezed == isLive
+          ? _value.isLive
+          : isLive // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isRegistered: freezed == isRegistered
+          ? _value.isRegistered
+          : isRegistered // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      participants: freezed == participants
+          ? _value.participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isCurrentUserSpeaker: freezed == isCurrentUserSpeaker
+          ? _value.isCurrentUserSpeaker
+          : isCurrentUserSpeaker // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -1811,7 +1924,28 @@ abstract class _$$_IncludedAttributesCopyWith<$Res>
       __$$_IncludedAttributesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String description});
+  $Res call(
+      {String? name,
+      String? description,
+      String? title,
+      String? mark,
+      String? latitude,
+      String? longitude,
+      int? order,
+      String? cover,
+      String? titleTranslit,
+      DateTime? startedAt,
+      DateTime? endedAt,
+      String? startedAtTime,
+      String? endedAtTime,
+      String? sessionUrl,
+      String? shape,
+      String? currentSurvey,
+      bool? isLive,
+      bool? isFavorite,
+      bool? isRegistered,
+      int? participants,
+      bool? isCurrentUserSpeaker});
 }
 
 /// @nodoc
@@ -1825,18 +1959,113 @@ class __$$_IncludedAttributesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? description = null,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? title = freezed,
+    Object? mark = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? order = freezed,
+    Object? cover = freezed,
+    Object? titleTranslit = freezed,
+    Object? startedAt = freezed,
+    Object? endedAt = freezed,
+    Object? startedAtTime = freezed,
+    Object? endedAtTime = freezed,
+    Object? sessionUrl = freezed,
+    Object? shape = freezed,
+    Object? currentSurvey = freezed,
+    Object? isLive = freezed,
+    Object? isFavorite = freezed,
+    Object? isRegistered = freezed,
+    Object? participants = freezed,
+    Object? isCurrentUserSpeaker = freezed,
   }) {
     return _then(_$_IncludedAttributes(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      mark: freezed == mark
+          ? _value.mark
+          : mark // ignore: cast_nullable_to_non_nullable
+              as String?,
+      latitude: freezed == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as String?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as String?,
+      order: freezed == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int?,
+      cover: freezed == cover
+          ? _value.cover
+          : cover // ignore: cast_nullable_to_non_nullable
+              as String?,
+      titleTranslit: freezed == titleTranslit
+          ? _value.titleTranslit
+          : titleTranslit // ignore: cast_nullable_to_non_nullable
+              as String?,
+      startedAt: freezed == startedAt
+          ? _value.startedAt
+          : startedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endedAt: freezed == endedAt
+          ? _value.endedAt
+          : endedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      startedAtTime: freezed == startedAtTime
+          ? _value.startedAtTime
+          : startedAtTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      endedAtTime: freezed == endedAtTime
+          ? _value.endedAtTime
+          : endedAtTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sessionUrl: freezed == sessionUrl
+          ? _value.sessionUrl
+          : sessionUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shape: freezed == shape
+          ? _value.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currentSurvey: freezed == currentSurvey
+          ? _value.currentSurvey
+          : currentSurvey // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLive: freezed == isLive
+          ? _value.isLive
+          : isLive // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isRegistered: freezed == isRegistered
+          ? _value.isRegistered
+          : isRegistered // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      participants: freezed == participants
+          ? _value.participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isCurrentUserSpeaker: freezed == isCurrentUserSpeaker
+          ? _value.isCurrentUserSpeaker
+          : isCurrentUserSpeaker // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1844,19 +2073,78 @@ class __$$_IncludedAttributesCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_IncludedAttributes implements _IncludedAttributes {
-  const _$_IncludedAttributes({required this.name, required this.description});
+  const _$_IncludedAttributes(
+      {this.name,
+      this.description,
+      this.title,
+      this.mark,
+      this.latitude,
+      this.longitude,
+      this.order,
+      this.cover,
+      this.titleTranslit,
+      this.startedAt,
+      this.endedAt,
+      this.startedAtTime,
+      this.endedAtTime,
+      this.sessionUrl,
+      this.shape,
+      this.currentSurvey,
+      this.isLive,
+      this.isFavorite,
+      this.isRegistered,
+      this.participants,
+      this.isCurrentUserSpeaker});
 
   factory _$_IncludedAttributes.fromJson(Map<String, dynamic> json) =>
       _$$_IncludedAttributesFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
-  final String description;
+  final String? description;
+  @override
+  final String? title;
+  @override
+  final String? mark;
+  @override
+  final String? latitude;
+  @override
+  final String? longitude;
+  @override
+  final int? order;
+  @override
+  final String? cover;
+  @override
+  final String? titleTranslit;
+  @override
+  final DateTime? startedAt;
+  @override
+  final DateTime? endedAt;
+  @override
+  final String? startedAtTime;
+  @override
+  final String? endedAtTime;
+  @override
+  final String? sessionUrl;
+  @override
+  final String? shape;
+  @override
+  final String? currentSurvey;
+  @override
+  final bool? isLive;
+  @override
+  final bool? isFavorite;
+  @override
+  final bool? isRegistered;
+  @override
+  final int? participants;
+  @override
+  final bool? isCurrentUserSpeaker;
 
   @override
   String toString() {
-    return 'IncludedAttributes(name: $name, description: $description)';
+    return 'IncludedAttributes(name: $name, description: $description, title: $title, mark: $mark, latitude: $latitude, longitude: $longitude, order: $order, cover: $cover, titleTranslit: $titleTranslit, startedAt: $startedAt, endedAt: $endedAt, startedAtTime: $startedAtTime, endedAtTime: $endedAtTime, sessionUrl: $sessionUrl, shape: $shape, currentSurvey: $currentSurvey, isLive: $isLive, isFavorite: $isFavorite, isRegistered: $isRegistered, participants: $participants, isCurrentUserSpeaker: $isCurrentUserSpeaker)';
   }
 
   @override
@@ -1866,12 +2154,66 @@ class _$_IncludedAttributes implements _IncludedAttributes {
             other is _$_IncludedAttributes &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.mark, mark) || other.mark == mark) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude) &&
+            (identical(other.order, order) || other.order == order) &&
+            (identical(other.cover, cover) || other.cover == cover) &&
+            (identical(other.titleTranslit, titleTranslit) ||
+                other.titleTranslit == titleTranslit) &&
+            (identical(other.startedAt, startedAt) ||
+                other.startedAt == startedAt) &&
+            (identical(other.endedAt, endedAt) || other.endedAt == endedAt) &&
+            (identical(other.startedAtTime, startedAtTime) ||
+                other.startedAtTime == startedAtTime) &&
+            (identical(other.endedAtTime, endedAtTime) ||
+                other.endedAtTime == endedAtTime) &&
+            (identical(other.sessionUrl, sessionUrl) ||
+                other.sessionUrl == sessionUrl) &&
+            (identical(other.shape, shape) || other.shape == shape) &&
+            (identical(other.currentSurvey, currentSurvey) ||
+                other.currentSurvey == currentSurvey) &&
+            (identical(other.isLive, isLive) || other.isLive == isLive) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite) &&
+            (identical(other.isRegistered, isRegistered) ||
+                other.isRegistered == isRegistered) &&
+            (identical(other.participants, participants) ||
+                other.participants == participants) &&
+            (identical(other.isCurrentUserSpeaker, isCurrentUserSpeaker) ||
+                other.isCurrentUserSpeaker == isCurrentUserSpeaker));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        name,
+        description,
+        title,
+        mark,
+        latitude,
+        longitude,
+        order,
+        cover,
+        titleTranslit,
+        startedAt,
+        endedAt,
+        startedAtTime,
+        endedAtTime,
+        sessionUrl,
+        shape,
+        currentSurvey,
+        isLive,
+        isFavorite,
+        isRegistered,
+        participants,
+        isCurrentUserSpeaker
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1890,19 +2232,341 @@ class _$_IncludedAttributes implements _IncludedAttributes {
 
 abstract class _IncludedAttributes implements IncludedAttributes {
   const factory _IncludedAttributes(
-      {required final String name,
-      required final String description}) = _$_IncludedAttributes;
+      {final String? name,
+      final String? description,
+      final String? title,
+      final String? mark,
+      final String? latitude,
+      final String? longitude,
+      final int? order,
+      final String? cover,
+      final String? titleTranslit,
+      final DateTime? startedAt,
+      final DateTime? endedAt,
+      final String? startedAtTime,
+      final String? endedAtTime,
+      final String? sessionUrl,
+      final String? shape,
+      final String? currentSurvey,
+      final bool? isLive,
+      final bool? isFavorite,
+      final bool? isRegistered,
+      final int? participants,
+      final bool? isCurrentUserSpeaker}) = _$_IncludedAttributes;
 
   factory _IncludedAttributes.fromJson(Map<String, dynamic> json) =
       _$_IncludedAttributes.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
-  String get description;
+  String? get description;
+  @override
+  String? get title;
+  @override
+  String? get mark;
+  @override
+  String? get latitude;
+  @override
+  String? get longitude;
+  @override
+  int? get order;
+  @override
+  String? get cover;
+  @override
+  String? get titleTranslit;
+  @override
+  DateTime? get startedAt;
+  @override
+  DateTime? get endedAt;
+  @override
+  String? get startedAtTime;
+  @override
+  String? get endedAtTime;
+  @override
+  String? get sessionUrl;
+  @override
+  String? get shape;
+  @override
+  String? get currentSurvey;
+  @override
+  bool? get isLive;
+  @override
+  bool? get isFavorite;
+  @override
+  bool? get isRegistered;
+  @override
+  int? get participants;
+  @override
+  bool? get isCurrentUserSpeaker;
   @override
   @JsonKey(ignore: true)
   _$$_IncludedAttributesCopyWith<_$_IncludedAttributes> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+IncludedRelationships _$IncludedRelationshipsFromJson(
+    Map<String, dynamic> json) {
+  return _IncludedRelationships.fromJson(json);
+}
+
+/// @nodoc
+mixin _$IncludedRelationships {
+  Contacts? get events => throw _privateConstructorUsedError;
+  Department? get place => throw _privateConstructorUsedError;
+  Contacts? get speakers => throw _privateConstructorUsedError;
+  Contacts? get resources => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $IncludedRelationshipsCopyWith<IncludedRelationships> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $IncludedRelationshipsCopyWith<$Res> {
+  factory $IncludedRelationshipsCopyWith(IncludedRelationships value,
+          $Res Function(IncludedRelationships) then) =
+      _$IncludedRelationshipsCopyWithImpl<$Res, IncludedRelationships>;
+  @useResult
+  $Res call(
+      {Contacts? events,
+      Department? place,
+      Contacts? speakers,
+      Contacts? resources});
+
+  $ContactsCopyWith<$Res>? get events;
+  $DepartmentCopyWith<$Res>? get place;
+  $ContactsCopyWith<$Res>? get speakers;
+  $ContactsCopyWith<$Res>? get resources;
+}
+
+/// @nodoc
+class _$IncludedRelationshipsCopyWithImpl<$Res,
+        $Val extends IncludedRelationships>
+    implements $IncludedRelationshipsCopyWith<$Res> {
+  _$IncludedRelationshipsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? events = freezed,
+    Object? place = freezed,
+    Object? speakers = freezed,
+    Object? resources = freezed,
+  }) {
+    return _then(_value.copyWith(
+      events: freezed == events
+          ? _value.events
+          : events // ignore: cast_nullable_to_non_nullable
+              as Contacts?,
+      place: freezed == place
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as Department?,
+      speakers: freezed == speakers
+          ? _value.speakers
+          : speakers // ignore: cast_nullable_to_non_nullable
+              as Contacts?,
+      resources: freezed == resources
+          ? _value.resources
+          : resources // ignore: cast_nullable_to_non_nullable
+              as Contacts?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ContactsCopyWith<$Res>? get events {
+    if (_value.events == null) {
+      return null;
+    }
+
+    return $ContactsCopyWith<$Res>(_value.events!, (value) {
+      return _then(_value.copyWith(events: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DepartmentCopyWith<$Res>? get place {
+    if (_value.place == null) {
+      return null;
+    }
+
+    return $DepartmentCopyWith<$Res>(_value.place!, (value) {
+      return _then(_value.copyWith(place: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ContactsCopyWith<$Res>? get speakers {
+    if (_value.speakers == null) {
+      return null;
+    }
+
+    return $ContactsCopyWith<$Res>(_value.speakers!, (value) {
+      return _then(_value.copyWith(speakers: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ContactsCopyWith<$Res>? get resources {
+    if (_value.resources == null) {
+      return null;
+    }
+
+    return $ContactsCopyWith<$Res>(_value.resources!, (value) {
+      return _then(_value.copyWith(resources: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_IncludedRelationshipsCopyWith<$Res>
+    implements $IncludedRelationshipsCopyWith<$Res> {
+  factory _$$_IncludedRelationshipsCopyWith(_$_IncludedRelationships value,
+          $Res Function(_$_IncludedRelationships) then) =
+      __$$_IncludedRelationshipsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Contacts? events,
+      Department? place,
+      Contacts? speakers,
+      Contacts? resources});
+
+  @override
+  $ContactsCopyWith<$Res>? get events;
+  @override
+  $DepartmentCopyWith<$Res>? get place;
+  @override
+  $ContactsCopyWith<$Res>? get speakers;
+  @override
+  $ContactsCopyWith<$Res>? get resources;
+}
+
+/// @nodoc
+class __$$_IncludedRelationshipsCopyWithImpl<$Res>
+    extends _$IncludedRelationshipsCopyWithImpl<$Res, _$_IncludedRelationships>
+    implements _$$_IncludedRelationshipsCopyWith<$Res> {
+  __$$_IncludedRelationshipsCopyWithImpl(_$_IncludedRelationships _value,
+      $Res Function(_$_IncludedRelationships) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? events = freezed,
+    Object? place = freezed,
+    Object? speakers = freezed,
+    Object? resources = freezed,
+  }) {
+    return _then(_$_IncludedRelationships(
+      events: freezed == events
+          ? _value.events
+          : events // ignore: cast_nullable_to_non_nullable
+              as Contacts?,
+      place: freezed == place
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as Department?,
+      speakers: freezed == speakers
+          ? _value.speakers
+          : speakers // ignore: cast_nullable_to_non_nullable
+              as Contacts?,
+      resources: freezed == resources
+          ? _value.resources
+          : resources // ignore: cast_nullable_to_non_nullable
+              as Contacts?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_IncludedRelationships implements _IncludedRelationships {
+  const _$_IncludedRelationships(
+      {this.events, this.place, this.speakers, this.resources});
+
+  factory _$_IncludedRelationships.fromJson(Map<String, dynamic> json) =>
+      _$$_IncludedRelationshipsFromJson(json);
+
+  @override
+  final Contacts? events;
+  @override
+  final Department? place;
+  @override
+  final Contacts? speakers;
+  @override
+  final Contacts? resources;
+
+  @override
+  String toString() {
+    return 'IncludedRelationships(events: $events, place: $place, speakers: $speakers, resources: $resources)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_IncludedRelationships &&
+            (identical(other.events, events) || other.events == events) &&
+            (identical(other.place, place) || other.place == place) &&
+            (identical(other.speakers, speakers) ||
+                other.speakers == speakers) &&
+            (identical(other.resources, resources) ||
+                other.resources == resources));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, events, place, speakers, resources);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_IncludedRelationshipsCopyWith<_$_IncludedRelationships> get copyWith =>
+      __$$_IncludedRelationshipsCopyWithImpl<_$_IncludedRelationships>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_IncludedRelationshipsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _IncludedRelationships implements IncludedRelationships {
+  const factory _IncludedRelationships(
+      {final Contacts? events,
+      final Department? place,
+      final Contacts? speakers,
+      final Contacts? resources}) = _$_IncludedRelationships;
+
+  factory _IncludedRelationships.fromJson(Map<String, dynamic> json) =
+      _$_IncludedRelationships.fromJson;
+
+  @override
+  Contacts? get events;
+  @override
+  Department? get place;
+  @override
+  Contacts? get speakers;
+  @override
+  Contacts? get resources;
+  @override
+  @JsonKey(ignore: true)
+  _$$_IncludedRelationshipsCopyWith<_$_IncludedRelationships> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1912,7 +2576,7 @@ Links _$LinksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Links {
-  String get self => throw _privateConstructorUsedError;
+  String? get self => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1924,7 +2588,7 @@ abstract class $LinksCopyWith<$Res> {
   factory $LinksCopyWith(Links value, $Res Function(Links) then) =
       _$LinksCopyWithImpl<$Res, Links>;
   @useResult
-  $Res call({String self});
+  $Res call({String? self});
 }
 
 /// @nodoc
@@ -1940,13 +2604,13 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? self = null,
+    Object? self = freezed,
   }) {
     return _then(_value.copyWith(
-      self: null == self
+      self: freezed == self
           ? _value.self
           : self // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -1957,7 +2621,7 @@ abstract class _$$_LinksCopyWith<$Res> implements $LinksCopyWith<$Res> {
       __$$_LinksCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String self});
+  $Res call({String? self});
 }
 
 /// @nodoc
@@ -1969,13 +2633,13 @@ class __$$_LinksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res, _$_Links>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? self = null,
+    Object? self = freezed,
   }) {
     return _then(_$_Links(
-      self: null == self
+      self: freezed == self
           ? _value.self
           : self // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -1983,13 +2647,13 @@ class __$$_LinksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res, _$_Links>
 /// @nodoc
 @JsonSerializable()
 class _$_Links implements _Links {
-  const _$_Links({required this.self});
+  const _$_Links({this.self});
 
   factory _$_Links.fromJson(Map<String, dynamic> json) =>
       _$$_LinksFromJson(json);
 
   @override
-  final String self;
+  final String? self;
 
   @override
   String toString() {
@@ -2023,12 +2687,12 @@ class _$_Links implements _Links {
 }
 
 abstract class _Links implements Links {
-  const factory _Links({required final String self}) = _$_Links;
+  const factory _Links({final String? self}) = _$_Links;
 
   factory _Links.fromJson(Map<String, dynamic> json) = _$_Links.fromJson;
 
   @override
-  String get self;
+  String? get self;
   @override
   @JsonKey(ignore: true)
   _$$_LinksCopyWith<_$_Links> get copyWith =>

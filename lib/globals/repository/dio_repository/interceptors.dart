@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:myevents/authentication/models/models.dart';
 import 'package:myevents/authentication/services/services.dart';
@@ -26,8 +27,8 @@ class AppInterceptors extends Interceptor {
   void onError(final DioError err, final ErrorInterceptorHandler handler) {
     final ServerError error =
         ServerError.fromJson(err.response?.data as Map<String, dynamic>);
-    print('error $error');
-    print("err.type ${err.type}");
+    debugPrint('error $error');
+    debugPrint('err.type ${err.type}');
     switch (err.type) {
       case DioErrorType.connectionTimeout:
       case DioErrorType.sendTimeout:

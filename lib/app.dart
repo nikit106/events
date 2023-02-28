@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevents/authentication/authentication.dart';
+import 'package:myevents/globals/observer/observer.dart';
 import 'package:myevents/globals/theme/main_theme.dart';
 import 'package:myevents/home/home.dart';
 import 'package:myevents/login/login.dart';
@@ -24,6 +25,9 @@ class _AppState extends State<App> {
   @override
   void initState() {
     super.initState();
+
+    /// Подключаем observer.
+    Bloc.observer = Observer();
     _authenticationRepository = AuthenticationRepository();
     _userRepository = UserRepository();
   }

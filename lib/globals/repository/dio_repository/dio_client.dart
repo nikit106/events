@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
+import 'package:myevents/globals/repository/storage/api_endpoint.dart';
 
 /// Класс [Api].
 class Api {
@@ -17,9 +18,9 @@ class Api {
   static Dio createDio() {
     final Dio dio = Dio(
       BaseOptions(
-        baseUrl: Endpoints.baseUrl,
-        receiveTimeout: Endpoints.receiveTimeout,
-        connectTimeout: Endpoints.connectionTimeout,
+        baseUrl: APIEndpoints.baseUrl,
+        receiveTimeout: APIEndpoints.receiveTimeout,
+        connectTimeout: APIEndpoints.connectionTimeout,
         headers: <String, dynamic>{},
       ),
     );

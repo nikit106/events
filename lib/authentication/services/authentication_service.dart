@@ -4,13 +4,14 @@ import 'package:dio/dio.dart';
 import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/authentication/models/models.dart';
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
+import 'package:myevents/globals/repository/storage/storage.dart';
 
 /// Service [AuthenticationService].
 class AuthenticationService {
   /// Получаем токен.
   Future<JwtToken> getToken(final String code, final String? deviceId) async {
     final Response<Map<String, dynamic>> response = await Api().dio.post(
-      Endpoints.login,
+      APIEndpoints.login,
       data: <String, String>{
         'code': code,
         'device_id': deviceId ?? '',
