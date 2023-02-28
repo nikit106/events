@@ -1,6 +1,6 @@
 /// Класс со статическими данными.
-class Endpoints {
-  Endpoints._();
+class APIEndpoints {
+  APIEndpoints._();
 
   /// Базовый url для работы с бэком.
   static const String baseUrl = 'https://events.rzdit.ru/api/v1/';
@@ -11,9 +11,12 @@ class Endpoints {
   /// Время соединения с бэком.
   static Duration connectionTimeout = const Duration(seconds: 15);
 
-  /// Url для авторизации через код.
+  /// Url для авторизации через код [AuthenticationService].
   static const String login = 'sessions/signin/by_code';
 
-  /// Url для получения текущего пользователя.
+  /// Url для получения текущих мероприятий [HomeService].
+  static const String liveEvents = 'events/lives';
+
+  /// Url для получения текущего пользователя [UserService].
   static const String user = 'users/me';
 }

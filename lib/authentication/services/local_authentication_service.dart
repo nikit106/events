@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:myevents/authentication/models/models.dart';
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:myevents/authentication/models/models.dart';
 
 /// Service [LocalAuthenticationService].
 class LocalAuthenticationService {

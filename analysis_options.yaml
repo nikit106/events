@@ -2,6 +2,8 @@ include: package:lint/analysis_options.yaml
 
 analyzer:
   exclude:
+    - "**/**/models/*.dart"
+    - "**/**/models/**/*.dart"
     - "**/*.g.dart"
     - "**/*.freezed.dart"
   errors:

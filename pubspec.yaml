@@ -11,7 +11,6 @@ environment:
 dependencies:
   bloc: ^8.1.0
   dio: ^5.0.0
-  uuid: ^3.0.7
   equatable: ^2.0.3
   flutter_svg: ^2.0.1
   freezed_annotation: ^2.2.0
@@ -19,23 +18,23 @@ dependencies:
   json_annotation: ^4.8.0
   shared_preferences: ^2.0.17
   flutter_secure_storage: ^8.0.0
-
+  # japx: ^2.1.0
+  device_info_plus: ^8.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
 
 # Dependencies that are only needed in the development phase of the package itself are listed under dev_dependencies.
 dev_dependencies:
-  bloc_test: ^9.1.0
+  # bloc_test: ^9.1.0
   faker: ^2.1.0
   freezed: ^2.3.2
   lint: ^2.0.1
-  flutter_test:
-    sdk: flutter
+  # flutter_test:
+  #   sdk: flutter
   mocktail: ^0.3.0
   build_runner: ^2.3.3
   json_serializable: ^6.6.1
-  device_info_plus: ^8.1.0
 
 flutter:
   uses-material-design: true

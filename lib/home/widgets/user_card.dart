@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myevents/globals/repository/storage/storage.dart';
 import 'package:myevents/globals/widgets/widgets.dart';
 import 'package:myevents/user/models/models.dart';
 
@@ -36,9 +37,9 @@ class UserCard extends StatelessWidget {
                   horizontal: 16,
                   vertical: 2,
                 ),
-                child: const Text(
-                  'ШПО ЦКИ',
-                  style: TextStyle(
+                child: Text(
+                  TextEndpoints.userCardAdditionalText,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14,
                   ),
@@ -64,9 +65,9 @@ class UserCard extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            const Text(
-                              'Добрый день,',
-                              style: TextStyle(
+                            Text(
+                              TextEndpoints.userCardHelloText,
+                              style: const TextStyle(
                                 fontSize: 14,
                                 color: Color(0xff8B8B8B),
                               ),
