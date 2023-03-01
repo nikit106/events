@@ -12,7 +12,7 @@
 
 // /// Модель [User].
 // class User with _$User {
-//   /// Создаем [User].
+//   /// Конструктор [User].
 //   const factory User({
 //     required final UserData data,
 //     required final Links links,
@@ -28,7 +28,7 @@
 
 // /// Модель [UserData].
 // class UserData with _$UserData {
-//   /// Создаем [UserData].
+//   /// Конструктор [UserData].
 //   const factory UserData({
 //     required final String id,
 //     required final String type,
@@ -45,7 +45,7 @@
 
 // /// Модель [DataAttributes].
 // class DataAttributes with _$DataAttributes {
-//   /// Создаем [DataAttributes].
+//   /// Конструктор [DataAttributes].
 //   const factory DataAttributes({
 //     /// Полное имя.
 //     required final String fullName,
@@ -97,7 +97,7 @@
 
 // /// Модель [Relationships].
 // class Relationships with _$Relationships {
-//   /// Создаем [Relationships].
+//   /// Конструктор [Relationships].
 //   const factory Relationships({
 //     required final Department department,
 //     required final Contacts contacts,
@@ -113,7 +113,7 @@
 
 // /// Модель [Contacts].
 // class Contacts with _$Contacts {
-//   /// Создаем [Contacts].
+//   /// Конструктор [Contacts].
 //   const factory Contacts({
 //     required final List<dynamic> data,
 //   }) = _Contacts;
@@ -127,7 +127,7 @@
 
 // /// Модель [Department].
 // class Department with _$Department {
-//   /// Создаем [Department].
+//   /// Конструктор [Department].
 //   const factory Department({
 //     required final DepartmentData data,
 //   }) = _Department;
@@ -141,7 +141,7 @@
 
 // /// Модель [DepartmentData].
 // class DepartmentData with _$DepartmentData {
-//   /// Создаем [DepartmentData].
+//   /// Конструктор [DepartmentData].
 //   const factory DepartmentData({
 //     required final String id,
 //     required final String type,
@@ -156,7 +156,7 @@
 
 // /// Модель [Included].
 // class Included with _$Included {
-//   /// Создаем [Included].
+//   /// Конструктор [Included].
 //   const factory Included({
 //     required final String id,
 //     required final String type,
@@ -172,7 +172,7 @@
 
 // /// Модель [IncludedAttributes].
 // class IncludedAttributes with _$IncludedAttributes {
-//   /// Создаем [IncludedAttributes].
+//   /// Конструктор [IncludedAttributes].
 //   const factory IncludedAttributes({
 //     required final String name,
 //     required final String description,
@@ -187,7 +187,7 @@
 
 // /// Модель [Links].
 // class Links with _$Links {
-//   /// Создаем [Links].
+//   /// Конструктор [Links].
 //   const factory Links({
 //     required final String self,
 //   }) = _Links;

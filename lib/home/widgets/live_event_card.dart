@@ -4,7 +4,7 @@ import 'package:myevents/globals/widgets/widgets.dart';
 
 /// Карточка текущих мероприятий.
 class LiveEventWidget extends StatelessWidget {
-  /// Создаем [LiveEventWidget]
+  /// Конструкторкторктор [LiveEventWidget]
   const LiveEventWidget({
     required this.data,
     super.key,
@@ -15,6 +15,7 @@ class LiveEventWidget extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    print(data);
     return ShadowWrapper(
       gradient: LinearGradient(
         begin: const Alignment(0.15, 0.9),
@@ -48,7 +49,7 @@ class LiveEventWidget extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  data?.title ?? '',
+                  data?.title ?? '12',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(color: Colors.white, fontSize: 14),

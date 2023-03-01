@@ -8,7 +8,7 @@ import 'package:myevents/login/login.dart';
 
 /// Экран авторизации.
 class LoginForm extends StatelessWidget {
-  /// Создаем экран [LoginForm].
+  /// Конструкторкторкторкторктор экран [LoginForm].
   const LoginForm({super.key});
 
   @override
@@ -30,7 +30,7 @@ class LoginForm extends StatelessWidget {
 
 /// Виджет для входа в приложение.
 class LoginWidget extends StatelessWidget {
-  /// Создаем [LoginWidget].
+  /// Конструкторкторкторкторктор [LoginWidget].
   const LoginWidget({
     super.key,
   });
@@ -88,7 +88,7 @@ class LoginWidget extends StatelessWidget {
 
 /// Панель кнопка для перехода на регистрацию.
 class RegistrationPanel extends StatelessWidget {
-  /// Создаем [RegistrationPanel]
+  /// Конструкторкторкторкторктор [RegistrationPanel]
   const RegistrationPanel({
     super.key,
   });
@@ -127,7 +127,7 @@ const TextEditingValue zwspEditingValue = TextEditingValue(
 
 /// Панель пинкода.
 class PinCodePanel extends StatefulWidget {
-  /// Создаем [PinCodePanel].
+  /// Конструкторкторкторкторктор [PinCodePanel].
   const PinCodePanel({
     super.key,
   });
@@ -200,7 +200,7 @@ class _PinCodePanelState extends State<PinCodePanel> {
 
 /// Ячейка PinCodePanel.
 class PinCodeItem extends StatelessWidget {
-  /// Создаем [PinCodePanel]
+  /// Конструкторкторкторкторктор [PinCodePanel]
   const PinCodeItem({
     required this.index,
     required this.listOfControllers,

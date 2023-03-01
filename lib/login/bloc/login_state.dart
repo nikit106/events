@@ -23,7 +23,7 @@ enum LoginStatus {
 
 /// State [LoginState].
 class LoginState {
-  /// Создаем [LoginState].
+  /// Конструтор [LoginState].
   const LoginState({
     this.status = LoginStatus.isPure,
     this.code = '',

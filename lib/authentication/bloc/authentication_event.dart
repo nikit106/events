@@ -2,7 +2,7 @@ part of 'authentication_bloc.dart';
 
 /// Event [AuthenticationEvent].
 abstract class AuthenticationEvent {
-  /// Создаем [AuthenticationEvent].
+  /// Конструктор [AuthenticationEvent].
   const AuthenticationEvent();
 }
 

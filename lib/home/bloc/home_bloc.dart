@@ -11,7 +11,7 @@ part 'home_state.dart';
 
 /// Bloc [HomeBloc].
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  /// Создаем [HomeBloc].
+  /// Конструктор [HomeBloc].
   HomeBloc({
     required final HomeRepository homeRepository,
   })  : _homeRepository = homeRepository,

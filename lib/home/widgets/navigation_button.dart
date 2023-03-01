@@ -4,7 +4,7 @@ import 'package:myevents/globals/widgets/widgets.dart';
 
 /// Кнопка для перехода на другие экраны.
 class NavigationButton extends StatelessWidget {
-  /// Создаем [NavigationButton]
+  /// Конструкторкторкторктор [NavigationButton]
   const NavigationButton({
     required this.text,
     required this.icon,

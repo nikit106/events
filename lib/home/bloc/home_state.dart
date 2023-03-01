@@ -17,7 +17,7 @@ enum HomeStatus {
 
 /// State [HomeState].
 class HomeState extends Equatable {
-  /// Создаем [HomeState].
+  /// Конструктор [HomeState].
   const HomeState({
     this.status = HomeStatus.initial,
     this.events = const <Datum>[],

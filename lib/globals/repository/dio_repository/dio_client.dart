@@ -5,7 +5,7 @@ import 'package:myevents/globals/repository/storage/api_endpoint.dart';
 
 /// Класс [Api].
 class Api {
-  /// Создаем единственный экземпляр [Api].
+  /// Конструктор единственный экземпляр [Api].
   factory Api() => _singleton;
   Api._internal();
 

@@ -2,7 +2,7 @@ part of 'login_bloc.dart';
 
 /// Event [LoginEvent].
 abstract class LoginEvent extends Equatable {
-  /// Создаем [LoginEvent].
+  /// Конструкторкторкторкторктор [LoginEvent].
   const LoginEvent();
 
   @override
@@ -11,7 +11,7 @@ abstract class LoginEvent extends Equatable {
 
 /// Событие при вводе кода.
 class CodeChanged extends LoginEvent {
-  /// Создаем [CodeChanged].
+  /// Конструкторкторкторкторктор [CodeChanged].
   const CodeChanged(this.code);
 
   /// Вводимый код для авторизации.
@@ -23,6 +23,6 @@ class CodeChanged extends LoginEvent {
 
 /// Событие при окончание ввода кода.
 class CodeSubmitted extends LoginEvent {
-  /// Создаем [CodeSubmitted].
+  /// Конструкторкторкторкторктор [CodeSubmitted].
   const CodeSubmitted();
 }

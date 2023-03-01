@@ -4,7 +4,7 @@ import 'package:myevents/splash/view/splash_background.dart';
 
 /// Виджет который будем показывать пока идет проверка авторизации.
 class SplashPage extends StatelessWidget {
-  /// Создаем [SplashPage]
+  /// Конструкторктор [SplashPage]
   const SplashPage({super.key});
 
   /// Роут [SplashPage]
