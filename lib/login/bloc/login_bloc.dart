@@ -8,7 +8,7 @@ part 'login_state.dart';
 
 /// Bloc [LoginBloc].
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  /// Создаем [LoginBloc].
+  /// Конструктор [LoginBloc].
   LoginBloc({
     required final AuthenticationRepository authenticationRepository,
   })  : _authenticationRepository = authenticationRepository,

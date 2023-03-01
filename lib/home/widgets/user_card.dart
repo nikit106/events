@@ -5,7 +5,7 @@ import 'package:myevents/user/models/models.dart';
 
 /// Карточка кнопка текущего пользователя.
 class UserCard extends StatelessWidget {
-  /// Создаем [UserCard].
+  /// Конструкторкторкторктор [UserCard].
   const UserCard({
     required this.attributes,
     super.key,

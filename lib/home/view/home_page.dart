@@ -8,10 +8,10 @@ import 'package:myevents/user/models/models.dart';
 
 /// Начальный экран [HomePage]
 class HomePage extends StatelessWidget {
-  /// Создаем [HomePage].
+  /// Конструктор [HomePage].
   const HomePage({super.key});
 
-  /// Создаем route для[HomePage].
+  /// Конструктор route для[HomePage].
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (final _) => const HomePage());
   }
@@ -79,6 +79,7 @@ class HomePage extends StatelessWidget {
                           shrinkWrap: true,
                           itemBuilder:
                               (final BuildContext context, final int index) {
+                                print("state.events ${state.events}");
                             return Padding(
                               padding: EdgeInsets.fromLTRB(
                                 index == 0 ? 32 : 10,

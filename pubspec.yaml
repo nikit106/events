@@ -23,6 +23,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  japx: 
 
 # Dependencies that are only needed in the development phase of the package itself are listed under dev_dependencies.
 dev_dependencies:

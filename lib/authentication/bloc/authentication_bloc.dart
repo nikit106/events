@@ -11,7 +11,7 @@ part 'authentication_state.dart';
 /// Bloc [AuthenticationBloc].
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  /// Создаем [AuthenticationBloc].
+  /// Конструктор [AuthenticationBloc].
   AuthenticationBloc({
     required final AuthenticationRepository authenticationRepository,
     required final UserRepository userRepository,

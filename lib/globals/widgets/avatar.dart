@@ -15,7 +15,7 @@ enum AvatarSize {
 
 /// Аватар юзера или же его инициалы.
 class Avatar extends StatelessWidget {
-  /// Создаем [Avatar].
+  /// Конструктор [Avatar].
   Avatar({
     super.key,
     this.avatarPath = '',
@@ -76,8 +76,7 @@ class Avatar extends StatelessWidget {
             width: size,
             child: Center(
               child: Text(
-                /// TODO неправильно написал Extension
-                ''.initials(firstName, surname),
+                <String?>[firstName, surname].initials(),
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.white,

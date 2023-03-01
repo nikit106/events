@@ -2,7 +2,7 @@ part of 'home_bloc.dart';
 
 /// Event [HomeEvent].
 abstract class HomeEvent {
-  /// Создаем [HomeEvent].
+  /// Конструктор [HomeEvent].
   const HomeEvent();
 }
 

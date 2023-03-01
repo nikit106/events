@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Обертка для для добавления тени и скругления.
 class ShadowWrapper extends StatelessWidget {
-  /// Создаем [ShadowWrapper].
+  /// Конструктор [ShadowWrapper].
   const ShadowWrapper({
     super.key,
     this.child = const SizedBox(),

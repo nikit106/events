@@ -7,7 +7,7 @@ import 'package:myevents/globals/models/errors/models.dart';
 
 /// Перехватчик запросов [AppInterceptors].
 class AppInterceptors extends Interceptor {
-  /// Создаем [AppInterceptors].
+  /// Конструктор [AppInterceptors].
   AppInterceptors(this.dio);
 
   /// Dio
@@ -74,7 +74,7 @@ class AppInterceptors extends Interceptor {
 
 /// Перехват 401 ошибки.
 class BadRequestException extends DioError {
-  /// Создаем [BadRequestException].
+  /// Конструктор [BadRequestException].
   BadRequestException(final RequestOptions r) : super(requestOptions: r);
 
   @override
@@ -85,7 +85,7 @@ class BadRequestException extends DioError {
 
 /// Перехват 500 ошибки.
 class InternalServerErrorException extends DioError {
-  /// Создаем [InternalServerErrorException].
+  /// Конструктор [InternalServerErrorException].
   InternalServerErrorException(final RequestOptions r)
       : super(requestOptions: r);
 
@@ -97,7 +97,7 @@ class InternalServerErrorException extends DioError {
 
 /// Перехват 409 ошибки.
 class ConflictException extends DioError {
-  /// Создаем [ConflictException].
+  /// Конструктор [ConflictException].
   ConflictException(final RequestOptions r) : super(requestOptions: r);
 
   @override
@@ -108,7 +108,7 @@ class ConflictException extends DioError {
 
 /// Перехват 401 ошибки.
 class UnauthorizedException extends DioError {
-  /// Создаем [UnauthorizedException].
+  /// Конструктор [UnauthorizedException].
   UnauthorizedException(
     final RequestOptions r,
     final String? e,
@@ -122,7 +122,7 @@ class UnauthorizedException extends DioError {
 
 /// Перехват 403 ошибки.
 class ForbiddenException extends DioError {
-  /// Создаем [ForbiddenException].
+  /// Конструктор [ForbiddenException].
   ForbiddenException(
     final RequestOptions r,
     final String? e,
@@ -136,7 +136,7 @@ class ForbiddenException extends DioError {
 
 /// Перехват 404 ошибки.
 class NotFoundException extends DioError {
-  /// Создаем [NotFoundException].
+  /// Конструктор [NotFoundException].
   NotFoundException(final RequestOptions r) : super(requestOptions: r);
 
   @override
@@ -147,7 +147,7 @@ class NotFoundException extends DioError {
 
 /// Перехват неизвестной ошибки.
 class NoInternetConnectionException extends DioError {
-  /// Создаем [NoInternetConnectionException].
+  /// Конструктор [NoInternetConnectionException].
   NoInternetConnectionException(final RequestOptions r)
       : super(requestOptions: r);
 
@@ -159,7 +159,7 @@ class NoInternetConnectionException extends DioError {
 
 /// Перехват ошибки когда долгое время не приходит ответ.
 class DeadlineExceededException extends DioError {
-  /// Создаем [DeadlineExceededException].
+  /// Конструктор [DeadlineExceededException].
   DeadlineExceededException(final RequestOptions r) : super(requestOptions: r);
 
   @override

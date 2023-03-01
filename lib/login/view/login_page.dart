@@ -6,10 +6,10 @@ import 'package:myevents/login/login.dart';
 
 /// Экран авьоризации [LoginPage].
 class LoginPage extends StatelessWidget {
-  /// Создаем [LoginPage].
+  /// Конструкторкторкторкторктор [LoginPage].
   const LoginPage({super.key});
 
-  /// Создаем route для[LoginPage].
+  /// Конструкторкторкторкторктор route для[LoginPage].
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (final _) => const LoginPage());
   }
