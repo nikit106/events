@@ -22,7 +22,8 @@ class AuthenticationRepository {
   /// Проверка статуса.
   Stream<AuthenticationStatus> get status async* {
     try {
-      await Future<void>.delayed(const Duration(seconds: 1));
+      /// TODO исправить, зачем тут delay,
+      // await Future<void>.delayed(const Duration(seconds: 1));
       final JwtToken? token = await _checkTokenLocally();
       if (token == null) {
         yield AuthenticationStatus.unauthenticated;
@@ -43,7 +44,8 @@ class AuthenticationRepository {
   }) async {
     try {
       final String? deviceId = await _getDeviceId();
-      final JwtToken token = await AuthenticationService().getToken(code, deviceId);
+      final JwtToken token =
+          await AuthenticationService().getToken(code, deviceId);
       await _saveCodeLocally(code);
       await _saveTokenLocally(token);
       _controller.add(AuthenticationStatus.authenticated);

@@ -6,7 +6,7 @@ import 'package:myevents/home/home.dart';
 /// Репозиторий [HomeRepository]
 class HomeRepository {
   /// Получение текущих мероприятий.
-  Future<List<Datum>?> getLiveEvents() async {
+  Future<List<Event>?> getLiveEvents() async {
     try {
       return await HomeService().getListOfLiveEvents();
     } on Exception {

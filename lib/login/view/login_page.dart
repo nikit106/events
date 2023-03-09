@@ -6,13 +6,10 @@ import 'package:myevents/login/login.dart';
 
 /// Экран авьоризации [LoginPage].
 class LoginPage extends StatelessWidget {
-  /// Конструкторкторкторкторктор [LoginPage].
+  /// Конструкторкторктор [LoginPage].
   const LoginPage({super.key});
 
-  /// Конструкторкторкторкторктор route для[LoginPage].
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (final _) => const LoginPage());
-  }
+
 
   @override
   Widget build(final BuildContext context) {

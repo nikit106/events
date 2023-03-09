@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
-import 'package:myevents/globals/repository/storage/api_endpoint.dart';
+import 'package:myevents/globals/storage/storage.dart';
 
 /// Класс [Api].
 class Api {
