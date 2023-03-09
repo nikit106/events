@@ -1,61 +1,40 @@
 import 'dart:async';
-import 'package:japx/japx.dart';
-import 'package:dio/dio.dart';
 
+import 'package:dio/dio.dart';
+import 'package:japx/japx.dart';
 import 'package:myevents/globals/models/models.dart';
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
-import 'package:myevents/globals/repository/storage/storage.dart';
+import 'package:myevents/globals/storage/storage.dart';
 
 /// Service [HomeService].
 class HomeService {
   /// Получаем текущие мероприятия.
-  Future<List<Datum>?> getListOfLiveEvents() async {
+  Future<List<Event>?> getListOfLiveEvents() async {
     try {
       final Response<Map<String, dynamic>> response =
           await Api().dio.get(APIEndpoints.liveEvents);
+      final Map<String, dynamic> japx =
+          Japx.decode(response.data ?? <String, Object>{});
+      // final Events data = Events.fromJson(japx['data'] ?? <String, Object>{});
 
-      /// TODO прикрутить japx.
-      final Events data = Events.fromJson(response.data ?? <String, Object>{});
-
+      print("japx['data'][0] --------- ");
+      for (var item in japx['data'][0].entries) {
+        print("${item.key} - ${item.value}");
+      }
+      print("japx['data'][0]['speakers'][0] ----------");
+      for (var item in japx['data'][0]['speakers'][0].entries) {
+        print("${item.key} - ${item.value}");
+      }
+      print('place ----------');
+      for (var item in japx['data'][0]['place'].entries) {
+        print("${item.key} - ${item.value}");
+      }
+      // print("data1 $data1");
+      final Events data = Events.fromJson(japx);
       return data.data;
     } catch (e) {
+      print("----e $e");
       rethrow;
     }
   }
 }
-
-
-// import 'dart:async';
-
-// import 'package:dio/dio.dart';
-// import 'package:japx/japx.dart';
-// import 'package:myevents/globals/models/models.dart';
-// import 'package:myevents/globals/repository/dio_repository/dio.dart';
-// import 'package:myevents/globals/repository/storage/storage.dart';
-
-// /// Service [HomeService].
-// class HomeService {
-//   /// Получаем текущие мероприятия.
-//   Future<List<Datum>?> getListOfLiveEvents() async {
-//     try {
-//       final Response<Map<String, dynamic>> response =
-//           await Api().dio.get(APIEndpoints.liveEvents);
-//       final Map<String, dynamic> result =
-//           Japx.decode(response.data ?? <String, Object>{});
-//       for (int i = 0; i < (result['data'] as List).length; i++) {
-//         print('--- ${result['data'][i]}');
-//         result['data'][i].forEach((key, value) {
-//           print("$key --- $value");
-//         });
-//       }
-
-//       print(result);
-
-//       final Events data1 = Events.fromJson(result);
-
-//       return data1.data;
-//     } catch (e) {
-//       rethrow;
-//     }
-//   }
-// }

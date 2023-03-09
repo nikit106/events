@@ -20,18 +20,19 @@ class HomeState extends Equatable {
   /// Конструктор [HomeState].
   const HomeState({
     this.status = HomeStatus.initial,
-    this.events = const <Datum>[],
+    this.events = const [],
+    // this.events = List<Event>[],
   });
 
   /// Статус текущих мероприятий.
   final HomeStatus status;
 
   /// Лист текущих мероприятий.
-  final List<Datum> events;
+  final List<Event> events;
 
   HomeState copyWith({
     final HomeStatus? status,
-    final List<Datum>? events,
+    final List<Event>? events,
   }) {
     return HomeState(
       status: status ?? this.status,

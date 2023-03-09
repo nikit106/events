@@ -15,7 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({
     required final HomeRepository homeRepository,
   })  : _homeRepository = homeRepository,
-        super(const HomeState()) {
+        super(HomeState()) {
     on<FetchedLiveEvents>(_fetchedLiveEvents);
   }
 
@@ -37,7 +37,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           status: HomeStatus.loading,
         ),
       );
-      final List<Datum>? events = await _tryGetLiveEvents();
+      final List<Event>? events = await _tryGetLiveEvents();
       emit(
         state.copyWith(status: HomeStatus.success, events: events),
       );
@@ -50,7 +50,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  Future<List<Datum>?> _tryGetLiveEvents() async {
+  Future<List<Event>?> _tryGetLiveEvents() async {
     try {
       return await _homeRepository.getLiveEvents();
     } catch (_) {

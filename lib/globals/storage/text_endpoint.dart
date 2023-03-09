@@ -43,4 +43,11 @@ class TextEndpoints {
       'route': '',
     },
   ];
+
+  /// Текст внутри контейнера 'скоро' на [SoonEventWidget].
+  static String soonEventWidgetTitle = 'Скоро';
+
+  /// Текст внутри контейнера 'скоро' на [SoonEventWidget].
+  static String soonEventWidgetSubtitle =
+      'Вас ожидает новое интересное событие в 2023 году';
 }

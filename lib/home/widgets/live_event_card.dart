@@ -4,18 +4,17 @@ import 'package:myevents/globals/widgets/widgets.dart';
 
 /// Карточка текущих мероприятий.
 class LiveEventWidget extends StatelessWidget {
-  /// Конструкторкторктор [LiveEventWidget]
+  /// Конструкторктор [LiveEventWidget]
   const LiveEventWidget({
-    required this.data,
+    this.data,
     super.key,
   });
 
   /// Инофрмация по мероприятию.
-  final DatumAttributes? data;
+  final Event? data;
 
   @override
   Widget build(final BuildContext context) {
-    print(data);
     return ShadowWrapper(
       gradient: LinearGradient(
         begin: const Alignment(0.15, 0.9),
@@ -31,7 +30,7 @@ class LiveEventWidget extends StatelessWidget {
               ],
       ),
       child: Container(
-        height: 130,
+        // height: 130,
         width: MediaQuery.of(context).size.width - 64,
         padding: const EdgeInsets.fromLTRB(20, 16, 27, 17),
         child: Column(
@@ -49,7 +48,7 @@ class LiveEventWidget extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  data?.title ?? '12',
+                  data?.title ?? '',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(color: Colors.white, fontSize: 14),
@@ -59,9 +58,9 @@ class LiveEventWidget extends StatelessWidget {
             Row(
               children: <Widget>[
                 Avatar(
-                  firstName: 'Никита',
-                  surname: 'Комаров',
-                  // avatarPath: '',
+                  firstName: data?.speakers?[0].firstName,
+                  surname: data?.speakers?[0].surname,
+                  avatarPath: data?.speakers?[0].avatar,
                   avatarSize: AvatarSize.little,
                 ),
                 const SizedBox(
@@ -70,16 +69,16 @@ class LiveEventWidget extends StatelessWidget {
                 Flexible(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
+                    children: <Widget>[
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          'Певзнер Александр Владимирович',
+                          data?.speakers?[0].fullName ?? '',
                           style: TextStyle(color: Colors.white, fontSize: 14),
                         ),
                       ),
                       Text(
-                        'Служба гибкой разработки',
+                        data?.speakers?[0].position ?? '',
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myevents/authentication/authentication.dart';
-import 'package:myevents/globals/repository/storage/storage.dart';
+import 'package:myevents/globals/storage/storage.dart';
 import 'package:myevents/home/home.dart';
 import 'package:myevents/user/models/models.dart';
 
@@ -10,11 +10,6 @@ import 'package:myevents/user/models/models.dart';
 class HomePage extends StatelessWidget {
   /// Конструктор [HomePage].
   const HomePage({super.key});
-
-  /// Конструктор route для[HomePage].
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (final _) => const HomePage());
-  }
 
   @override
   Widget build(final BuildContext context) {
@@ -64,7 +59,11 @@ class HomePage extends StatelessWidget {
 
                     case HomeStatus.success:
                       if (state.events.isEmpty) {
-                        return const Center(child: Text('no posts'));
+                        return const Center(
+                          child: SoonEventWidget(
+                           
+                          ),
+                        );
                       }
                       return ConstrainedBox(
                         constraints: const BoxConstraints(
@@ -79,7 +78,6 @@ class HomePage extends StatelessWidget {
                           shrinkWrap: true,
                           itemBuilder:
                               (final BuildContext context, final int index) {
-                                print("state.events ${state.events}");
                             return Padding(
                               padding: EdgeInsets.fromLTRB(
                                 index == 0 ? 32 : 10,
@@ -88,7 +86,7 @@ class HomePage extends StatelessWidget {
                                 10,
                               ),
                               child: LiveEventWidget(
-                                data: state.events[index].attributes,
+                                data: state.events[index]
                               ),
                             );
                           },

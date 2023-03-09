@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myevents/globals/repository/storage/storage.dart';
+import 'package:myevents/globals/storage/storage.dart';
 import 'package:myevents/globals/widgets/widgets.dart';
 import 'package:myevents/user/models/models.dart';
 
 /// Карточка кнопка текущего пользователя.
 class UserCard extends StatelessWidget {
-  /// Конструкторкторкторктор [UserCard].
+  /// Конструкторкторктор [UserCard].
   const UserCard({
     required this.attributes,
     super.key,

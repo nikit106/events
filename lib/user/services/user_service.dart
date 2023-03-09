@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
-import 'package:myevents/globals/repository/storage/storage.dart';
+import 'package:myevents/globals/storage/storage.dart';
 import 'package:myevents/user/user.dart';
 
 /// Сервис для работы с User.

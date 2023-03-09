@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/authentication/models/models.dart';
 import 'package:myevents/globals/repository/dio_repository/dio.dart';
-import 'package:myevents/globals/repository/storage/storage.dart';
+import 'package:myevents/globals/storage/storage.dart';
 
 /// Service [AuthenticationService].
 class AuthenticationService {

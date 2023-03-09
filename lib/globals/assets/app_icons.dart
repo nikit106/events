@@ -72,4 +72,11 @@ class AppIcons {
         width: 32,
         height: 32,
       );
+
+  /// Иконка опросов.
+  static SvgPicture holiday() => SvgPicture.asset(
+        'assets/svg/holiday.svg',
+        width: 32,
+        height: 32,
+      );
 }
