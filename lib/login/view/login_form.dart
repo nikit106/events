@@ -167,12 +167,12 @@ class _PinCodePanelState extends State<PinCodePanel> {
   @override
   void dispose() {
     super.dispose();
-    listOfFocusNodes.forEach((final FocusNode focusNode) {
+    for (final FocusNode focusNode in listOfFocusNodes) {
       focusNode.dispose();
-    });
-    listOfControllers.forEach((final TextEditingController controller) {
+    }
+    for (final TextEditingController controller in listOfControllers) {
       controller.dispose();
-    });
+    }
   }
 
   @override

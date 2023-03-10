@@ -7,6 +7,11 @@ class SplashPage extends StatelessWidget {
   /// Конструктор [SplashPage]
   const SplashPage({super.key});
 
+  /// Роут [SplashPage]
+  static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (final _) => const SplashPage());
+  }
+
   @override
   Widget build(final BuildContext context) {
     return Scaffold(

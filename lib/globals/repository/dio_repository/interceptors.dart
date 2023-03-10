@@ -25,7 +25,6 @@ class AppInterceptors extends Interceptor {
 
   @override
   void onError(final DioError err, final ErrorInterceptorHandler handler) {
-    print('---');
     final ServerError error =
         ServerError.fromJson(err.response?.data as Map<String, dynamic>);
     debugPrint('error $error');

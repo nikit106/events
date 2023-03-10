@@ -79,4 +79,18 @@ class AppIcons {
         width: 32,
         height: 32,
       );
+
+  /// Иконка участников ечсли больше 2.
+  static SvgPicture moreThanTwo() => SvgPicture.asset(
+        'assets/svg/moreThanTwo.svg',
+        width: 32,
+        height: 32,
+      );
+
+  /// Иконка пина локации.
+  static SvgPicture mapPin() => SvgPicture.asset(
+        'assets/svg/map-pin.svg',
+        width: 12,
+        height: 12,
+      );
 }

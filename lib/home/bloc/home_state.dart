@@ -20,7 +20,7 @@ class HomeState extends Equatable {
   /// Конструктор [HomeState].
   const HomeState({
     this.status = HomeStatus.initial,
-    this.events = const [],
+    this.events = const <Event>[],
     // this.events = List<Event>[],
   });
 
