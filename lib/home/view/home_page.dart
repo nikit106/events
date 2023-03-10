@@ -11,6 +11,11 @@ class HomePage extends StatelessWidget {
   /// Конструктор [HomePage].
   const HomePage({super.key});
 
+  /// Route для[HomePage].
+  static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (final _) => const HomePage());
+  }
+
   @override
   Widget build(final BuildContext context) {
     return BlocProvider<HomeBloc>(
@@ -60,15 +65,12 @@ class HomePage extends StatelessWidget {
                     case HomeStatus.success:
                       if (state.events.isEmpty) {
                         return const Center(
-                          child: SoonEventWidget(
-                           
-                          ),
+                          child: SoonEventWidget(),
                         );
                       }
                       return ConstrainedBox(
                         constraints: const BoxConstraints(
                           minHeight: 100,
-                          // minWidth: double.infinity,
                           maxHeight: 150,
                         ),
                         child: ListView.builder(
@@ -85,9 +87,7 @@ class HomePage extends StatelessWidget {
                                 index == state.events.length - 1 ? 32 : 10,
                                 10,
                               ),
-                              child: LiveEventWidget(
-                                data: state.events[index]
-                              ),
+                              child: LiveEventWidget(data: state.events[index]),
                             );
                           },
                         ),

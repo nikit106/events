@@ -15,17 +15,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({
     required final HomeRepository homeRepository,
   })  : _homeRepository = homeRepository,
-        super(HomeState()) {
+        super(const HomeState()) {
     on<FetchedLiveEvents>(_fetchedLiveEvents);
   }
 
   final HomeRepository _homeRepository;
 
-  @override
-  Future<void> close() {
-    // _homeStatusSubscription.cancel();
-    return super.close();
-  }
+  // @override
+  // Future<void> close() {
+  //   return super.close();
+  // }
 
   Future<void> _fetchedLiveEvents(
     final FetchedLiveEvents event,

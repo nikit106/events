@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/globals/observer/observer.dart';
-import 'package:myevents/globals/routes/router.dart';
 import 'package:myevents/globals/theme/main_theme.dart';
+import 'package:myevents/home/view/home_page.dart';
 import 'package:myevents/login/view/login_page.dart';
+import 'package:myevents/responsive_main_wrapper.dart';
 import 'package:myevents/splash/view/splash_page.dart';
 import 'package:myevents/user/user.dart';
-
-
-import 'home/view/home_page.dart';
 
 /// myEvents app
 class App extends StatefulWidget {
@@ -42,146 +39,174 @@ class _AppState extends State<App> {
     super.dispose();
   }
 
-  @override
-  Widget build(final BuildContext context) {
-    final GoRouter router = GoRouter(
-      navigatorKey: GlobalKey<NavigatorState>(),
-
-      routes: <GoRoute>[
-        GoRoute(
-          name: 'login',
-          path: '/login',
-          builder: (final BuildContext context, final GoRouterState state) =>
-              const LoginPage(),
-        ),
-        GoRoute(
-          name: 'splash',
-          path: '/splash',
-          builder: (final BuildContext context, final GoRouterState state) {
-            return const SplashPage();
-          },
-        ),
-        GoRoute(
-          path: '/',
-          builder: (final BuildContext context, final GoRouterState state) {
-            return const HomePage();
-          },
-        ),
-        GoRoute(
-          name: 'home',
-          path: '/home',
-          builder: (final BuildContext context, final GoRouterState state) =>
-              const HomePage(),
-        ),
-      ],
-      // initialLocation: '/login', debugLogDiagnostics: true, routerNeglect: true,
-
-      // redirect to the login page if the user is not logged in
-      redirect: (final BuildContext context, final GoRouterState state) async {
-        ///TODO прикрутить проверку
-        // print("state.error ${state.error}");
-        // print("state.fullpath ${state.fullpath}");
-        // print("state.name ${state.name}");
-        // print('redirect');
-        return null;
-      },
-    );
-    return RepositoryProvider.value(
-      value: _authenticationRepository,
-      child: BlocProvider(
-        create: (final BuildContext context) => AuthenticationBloc(
-          authenticationRepository: _authenticationRepository,
-          userRepository: _userRepository,
-        ),
-        child: BlocListener<AuthenticationBloc, AuthenticationState>(
-          listener:
-              (final BuildContext context, final AuthenticationState state) {
-            switch (state.status) {
-              case AuthenticationStatus.authenticated:
-                print('0');
-                router.goNamed('home');
-                break;
-              case AuthenticationStatus.unauthenticated:
-                print('1');
-                router.goNamed('login');
-                break;
-              case AuthenticationStatus.unknown:
-                print('2');
-                router.goNamed('login');
-                break;
-            }
-          },
-          child: MaterialApp.router(
-            routeInformationParser: router.routeInformationParser,
-            routerDelegate: router.routerDelegate,
-            routeInformationProvider: router.routeInformationProvider,
-            theme: AppThemes.basicTheme,
-            debugShowCheckedModeBanner: false,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 //   @override
 //   Widget build(final BuildContext context) {
+//     final GoRouter router = GoRouter(
+//       navigatorKey: GlobalKey<NavigatorState>(),
+
+//       routes: <GoRoute>[
+//         GoRoute(
+//           name: 'login',
+//           path: '/login',
+//           builder: (final BuildContext context, final GoRouterState state) =>
+//               const LoginPage(),
+//         ),
+//         GoRoute(
+//           name: 'splash',
+//           path: '/splash',
+//           builder: (final BuildContext context, final GoRouterState state) {
+//             return const SplashPage();
+//           },
+//         ),
+//         GoRoute(
+//           path: '/',
+//           builder: (final BuildContext context, final GoRouterState state) {
+//             return const HomePage();
+//           },
+//         ),
+//         GoRoute(
+//           name: 'home',
+//           path: '/home',
+//           builder: (final BuildContext context, final GoRouterState state) =>
+//               const HomePage(),
+//         ),
+//       ],
+//       // initialLocation: '/login', debugLogDiagnostics: true, routerNeglect: true,
+
+//       // redirect to the login page if the user is not logged in
+//       redirect: (final BuildContext context, final GoRouterState state) async {
+//         ///TODO прикрутить проверку
+//         // print("state.error ${state.error}");
+//         // print("state.fullpath ${state.fullpath}");
+//         // print("state.name ${state.name}");
+//         // print('redirect');
+//         return null;
+//       },
+//     );
 //     return RepositoryProvider.value(
 //       value: _authenticationRepository,
 //       child: BlocProvider(
-//         create: (final _) => AuthenticationBloc(
+//         create: (final BuildContext context) => AuthenticationBloc(
 //           authenticationRepository: _authenticationRepository,
 //           userRepository: _userRepository,
 //         ),
-//         child: const AppView(),
+//         child: BlocListener<AuthenticationBloc, AuthenticationState>(
+//           listener:
+//               (final BuildContext context, final AuthenticationState state) {
+//             switch (state.status) {
+//               case AuthenticationStatus.authenticated:
+//                 router.goNamed('home');
+//                 break;
+//               case AuthenticationStatus.unauthenticated:
+//                 router.goNamed('login');
+//                 break;
+//               case AuthenticationStatus.unknown:
+//                 router.goNamed('login');
+//                 break;
+//             }
+//           },
+//           child: MaterialApp.router(
+//             routeInformationParser: router.routeInformationParser,
+//             routerDelegate: router.routerDelegate,
+//             routeInformationProvider: router.routeInformationProvider,
+//             theme: AppThemes.basicTheme,
+//             debugShowCheckedModeBanner: false,
+//           ),
+//         ),
 //       ),
 //     );
 //   }
 // }
 
-// /// Экран [AppView].
-// class AppView extends StatefulWidget {
-//   /// Создаем [AppView]
-//   const AppView({super.key});
+  @override
+  Widget build(final BuildContext context) {
+    return RepositoryProvider.value(
+      value: _authenticationRepository,
+      child: BlocProvider(
+        create: (final _) => AuthenticationBloc(
+          authenticationRepository: _authenticationRepository,
+          userRepository: _userRepository,
+        ),
+        child: const AppView(),
+      ),
+    );
+  }
+}
 
-//   @override
-//   State<AppView> createState() => _AppViewState();
-// }
+/// Экран [AppView].
+class AppView extends StatefulWidget {
+  /// Создаем [AppView]
+  const AppView({super.key});
 
-// class _AppViewState extends State<AppView> {
-//   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+  @override
+  State<AppView> createState() => _AppViewState();
+}
 
-//   @override
-//   Widget build(final BuildContext context) {
-//     return MaterialApp(
-//       theme: AppThemes.basicTheme,
-//       debugShowCheckedModeBanner: false,
-//       navigatorKey: _navigatorKey,
-//       builder: (final BuildContext context, final Widget? child) {
-//         return BlocListener<AuthenticationBloc, AuthenticationState>(
-//           listener:
-//               (final BuildContext context, final AuthenticationState state) {
-//             switch (state.status) {
-//               case AuthenticationStatus.authenticated:
-//                 _navigator.pushAndRemoveUntil<void>(
-//                   HomePage.route(),
-//                   (final Route route) => false,
-//                 );
-//                 break;
-//               case AuthenticationStatus.unauthenticated:
-//                 _navigator.pushAndRemoveUntil<void>(
-//                   LoginPage.route(),
-//                   (final Route route) => false,
-//                 );
-//                 break;
-//               case AuthenticationStatus.unknown:
-//                 break;
-//             }
-//           },
-//           child: MainResponsiveWrapper(child: child ?? const SizedBox()),
-//         );
-//       },
-//       onGenerateRoute: (final _) => SplashPage.route(),
-//     );
-//   }
-// }
+class _AppViewState extends State<AppView> {
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+  NavigatorState get _navigator => _navigatorKey.currentState!;
+
+  @override
+  Widget build(final BuildContext context) {
+    return MaterialApp(
+      theme: AppThemes.basicTheme,
+      debugShowCheckedModeBanner: false,
+      navigatorKey: _navigatorKey,
+      builder: (final BuildContext context, final Widget? child) {
+        return BlocListener<AuthenticationBloc, AuthenticationState>(
+          listener:
+              (final BuildContext context, final AuthenticationState state) {
+            switch (state.status) {
+              case AuthenticationStatus.authenticated:
+                _navigator.pushAndRemoveUntil<void>(
+                  HomePage.route(),
+                  (final Route route) => false,
+                );
+                break;
+              case AuthenticationStatus.unauthenticated:
+                _navigator.pushAndRemoveUntil<void>(
+                  LoginPage.route(),
+                  (final Route route) => false,
+                );
+                break;
+              case AuthenticationStatus.unknown:
+                break;
+            }
+          },
+          child: MainResponsiveWrapper(child: child ?? const SizedBox()),
+        );
+      },
+      onGenerateRoute: (final _) => SplashPage.route(),
+    );
+    // return MaterialApp(
+    //   theme: AppThemes.basicTheme,
+    //   debugShowCheckedModeBanner: false,
+    //   navigatorKey: _navigatorKey,
+    //   builder: (final BuildContext context, final Widget? child) {
+    //     return BlocListener<AuthenticationBloc, AuthenticationState>(
+    //       listener:
+    //           (final BuildContext context, final AuthenticationState state) {
+    //         switch (state.status) {
+    //           case AuthenticationStatus.authenticated:
+    //             _navigator.pushAndRemoveUntil<void>(
+    //               HomePage.route(),
+    //               (final Route route) => false,
+    //             );
+    //             break;
+    //           case AuthenticationStatus.unauthenticated:
+    //             _navigator.pushAndRemoveUntil<void>(
+    //               LoginPage.route(),
+    //               (final Route route) => false,
+    //             );
+    //             break;
+    //           case AuthenticationStatus.unknown:
+    //             break;
+    //         }
+    //       },
+    //       child: MainResponsiveWrapper(child: child ?? const SizedBox()),
+    //     );
+    //   },
+    //   onGenerateRoute: (final _) => SplashPage.route(),
+    // );
+  }
+}
