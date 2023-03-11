@@ -14,9 +14,12 @@ class APIEndpoints {
   /// Url для авторизации через код [AuthenticationService].
   static const String login = 'sessions/signin/by_code';
 
+  /// Url для получения текущего пользователя [UserService].
+  static const String user = 'users/me';
+
   /// Url для получения текущих мероприятий [HomeService].
   static const String liveEvents = 'events/lives';
 
-  /// Url для получения текущего пользователя [UserService].
-  static const String user = 'users/me';
+  /// Url для получения материалов [MaterialsService].
+  static const String materials = 'materials';
 }

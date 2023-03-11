@@ -5,6 +5,7 @@ import 'package:myevents/globals/observer/observer.dart';
 import 'package:myevents/globals/theme/main_theme.dart';
 import 'package:myevents/home/view/home_page.dart';
 import 'package:myevents/login/view/login_page.dart';
+import 'package:myevents/materials/materials.dart';
 import 'package:myevents/responsive_main_wrapper.dart';
 import 'package:myevents/splash/view/splash_page.dart';
 import 'package:myevents/user/user.dart';
@@ -158,8 +159,12 @@ class _AppViewState extends State<AppView> {
               (final BuildContext context, final AuthenticationState state) {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
+                // _navigator.pushAndRemoveUntil<void>(
+                //   HomePage.route(),
+                //   (final Route route) => false,
+                // );
                 _navigator.pushAndRemoveUntil<void>(
-                  HomePage.route(),
+                  MaterialsPage.route(),
                   (final Route route) => false,
                 );
                 break;
