@@ -87,13 +87,3 @@ class Speakers with _$Speakers {
   factory Speakers.fromJson(final Map<String, dynamic> json) =>
       _$SpeakersFromJson(json);
 }
-
-// @freezed
-// class Resources with _$Resources {
-//   const factory Resources({
-//     final dynamic? title,
-//   }) = _Resources;
-
-//   factory Resources.fromJson(final Map<String, dynamic> json) =>
-//       _$ResourcesFromJson(json);
-// }
