@@ -25,8 +25,6 @@ class MaterialsBloc extends Bloc<MaterialsEvent, MaterialsState> {
         super(const MaterialsState()) {
     on<FetchedMaterials>(
       _fetchedMaterials,
-
-      /// TODO узнать у Никиты норм ли так делать.
       transformer: debounce(const Duration(milliseconds: 50)),
     );
   }
@@ -41,6 +39,7 @@ class MaterialsBloc extends Bloc<MaterialsEvent, MaterialsState> {
     final Emitter<MaterialsState> emit,
   ) async {
     try {
+      print('поиск');
       if (state.hasReachedMax) return;
 
       final List<Material>? materials = await _tryGetMaterials();
