@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevents/authentication/authentication.dart';
 import 'package:myevents/globals/observer/observer.dart';
 import 'package:myevents/globals/theme/main_theme.dart';
-import 'package:myevents/home/view/home_page.dart';
 import 'package:myevents/login/view/login_page.dart';
 import 'package:myevents/materials/materials.dart';
 import 'package:myevents/responsive_main_wrapper.dart';
